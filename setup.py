@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='passkit-python-grpc-sdk',
-    version='1.1.105.4',
+    version='1.1.105.5',
     url="https://github.com/PassKit/passkit-python-grpc-sdk",
     author='passkit',
     author_email='support@passkit.com',
