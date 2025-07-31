@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "passkit-python-grpc-sdk"
-version = "1.1.105.5"
+version = "1.1.123"
 authors = [
   { name="passkit", email="support@passkit.com" },
 ]
 description = "Python SDK for Apple Wallet and Google Pay Membership / Loyalty / Access Cards, Coupons, Flights & Event-Tickets."
-readme = "readME.md"
+readme = "readMe.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -20,3 +20,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/PassKit/passkit-python-grpc-sdk"
 "Bug Tracker" = "https://github.com/PassKit/passkit-python-grpc-sdk/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["passkit_io", "ct"]

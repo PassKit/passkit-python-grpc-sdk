@@ -3,16 +3,17 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import filter_pb2 as io_dot_common_dot_filter__pb2
-from passkit_io.common import links_pb2 as io_dot_common_dot_links__pb2
-from passkit_io.common import pagination_pb2 as io_dot_common_dot_pagination__pb2
-from passkit_io.common import proximity_pb2 as io_dot_common_dot_proximity__pb2
-from passkit_io.common import template_pb2 as io_dot_common_dot_template__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
+from passkit.io.common import links_pb2 as passkit_dot_io_dot_common_dot_links__pb2
+from passkit.io.common import pagination_pb2 as passkit_dot_io_dot_common_dot_pagination__pb2
+from passkit.io.common import proximity_pb2 as passkit_dot_io_dot_common_dot_proximity__pb2
+from passkit.io.common import template_pb2 as passkit_dot_io_dot_common_dot_template__pb2
 
 
 class TemplatesStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Templates API allows you to manage your pass templates for Apple Wallet and Google Wallet.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -22,456 +23,498 @@ class TemplatesStub(object):
         """
         self.createTemplate = channel.unary_unary(
                 '/io.Templates/createTemplate',
-                request_serializer=io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateTemplate = channel.unary_unary(
                 '/io.Templates/updateTemplate',
-                request_serializer=io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplate.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.FromString,
                 _registered_method=True)
         self.getTemplate = channel.unary_unary(
                 '/io.Templates/getTemplate',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
                 _registered_method=True)
         self.getDefaultTemplate = channel.unary_unary(
                 '/io.Templates/getDefaultTemplate',
-                request_serializer=io_dot_common_dot_template__pb2.DefaultTemplateRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplate.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.DefaultTemplateRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.FromString,
                 _registered_method=True)
         self.copyTemplate = channel.unary_unary(
                 '/io.Templates/copyTemplate',
-                request_serializer=io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteTemplate = channel.unary_unary(
                 '/io.Templates/deleteTemplate',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listTemplatesForUserDeprecated = channel.unary_stream(
                 '/io.Templates/listTemplatesForUserDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
                 _registered_method=True)
         self.listTemplatesForUser = channel.unary_stream(
                 '/io.Templates/listTemplatesForUser',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
                 _registered_method=True)
         self.listTemplatesDeprecated = channel.unary_stream(
                 '/io.Templates/listTemplatesDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
                 _registered_method=True)
         self.listTemplates = channel.unary_stream(
                 '/io.Templates/listTemplates',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
                 _registered_method=True)
         self.countTemplatesDeprecated = channel.unary_unary(
                 '/io.Templates/countTemplatesDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countTemplates = channel.unary_unary(
                 '/io.Templates/countTemplates',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countTemplatesForUserDeprecated = channel.unary_unary(
                 '/io.Templates/countTemplatesForUserDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countTemplatesForUser = channel.unary_unary(
                 '/io.Templates/countTemplatesForUser',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.createLocation = channel.unary_unary(
                 '/io.Templates/createLocation',
-                request_serializer=io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateLocation = channel.unary_unary(
                 '/io.Templates/updateLocation',
-                request_serializer=io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
                 _registered_method=True)
         self.getLocation = channel.unary_unary(
                 '/io.Templates/getLocation',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
                 _registered_method=True)
         self.listLocationsDeprecated = channel.unary_stream(
                 '/io.Templates/listLocationsDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
                 _registered_method=True)
         self.listLocations = channel.unary_stream(
                 '/io.Templates/listLocations',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
                 _registered_method=True)
         self.copyLocation = channel.unary_unary(
                 '/io.Templates/copyLocation',
-                request_serializer=io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteLocation = channel.unary_unary(
                 '/io.Templates/deleteLocation',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.countLocationsDeprecated = channel.unary_unary(
                 '/io.Templates/countLocationsDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countLocations = channel.unary_unary(
                 '/io.Templates/countLocations',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.createBeacon = channel.unary_unary(
                 '/io.Templates/createBeacon',
-                request_serializer=io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateBeacon = channel.unary_unary(
                 '/io.Templates/updateBeacon',
-                request_serializer=io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.Beacon.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
                 _registered_method=True)
         self.getBeacon = channel.unary_unary(
                 '/io.Templates/getBeacon',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.Beacon.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
                 _registered_method=True)
         self.listBeaconsDeprecated = channel.unary_stream(
                 '/io.Templates/listBeaconsDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.Beacon.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
                 _registered_method=True)
         self.listBeacons = channel.unary_stream(
                 '/io.Templates/listBeacons',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_proximity__pb2.Beacon.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
                 _registered_method=True)
         self.copyBeacon = channel.unary_unary(
                 '/io.Templates/copyBeacon',
-                request_serializer=io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteBeacon = channel.unary_unary(
                 '/io.Templates/deleteBeacon',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.countBeaconsDeprecated = channel.unary_unary(
                 '/io.Templates/countBeaconsDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countBeacons = channel.unary_unary(
                 '/io.Templates/countBeacons',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.createLink = channel.unary_unary(
                 '/io.Templates/createLink',
-                request_serializer=io_dot_common_dot_links__pb2.Link.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateLink = channel.unary_unary(
                 '/io.Templates/updateLink',
-                request_serializer=io_dot_common_dot_links__pb2.Link.SerializeToString,
-                response_deserializer=io_dot_common_dot_links__pb2.Link.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
                 _registered_method=True)
         self.getLink = channel.unary_unary(
                 '/io.Templates/getLink',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_links__pb2.Link.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
                 _registered_method=True)
         self.listLinksDeprecated = channel.unary_stream(
                 '/io.Templates/listLinksDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_links__pb2.Link.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
                 _registered_method=True)
         self.listLinks = channel.unary_stream(
                 '/io.Templates/listLinks',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_links__pb2.Link.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
                 _registered_method=True)
         self.copyLink = channel.unary_unary(
                 '/io.Templates/copyLink',
-                request_serializer=io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteLink = channel.unary_unary(
                 '/io.Templates/deleteLink',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.countLinksDeprecated = channel.unary_unary(
                 '/io.Templates/countLinksDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countLinks = channel.unary_unary(
                 '/io.Templates/countLinks',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
 
 
 class TemplatesServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Templates API allows you to manage your pass templates for Apple Wallet and Google Wallet.
+    """
 
     def createTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new pass template record. Required Fields: protocol, revision, name, colors, fields
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing pass template. Required Fields: id
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a pass template by ID. Required Fields: id
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getDefaultTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the default pass template for a given protocol and revision. Required Fields: protocol, revision
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Copies an existing pass template and returns a new ID. Required Fields: id
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a pass template. Required Fields: id
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listTemplatesForUserDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves all user-owned pass templates matching filters. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listTemplatesForUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all user-owned pass templates matching filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listTemplatesDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves all company-wide pass templates matching filters. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listTemplates(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all company-wide pass templates matching filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countTemplatesDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves a count of company-wide pass templates matching filters. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countTemplates(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a count of company-wide pass templates matching filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countTemplatesForUserDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves a count of user-owned pass templates matching filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countTemplatesForUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a count of user-owned pass templates matching filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createLocation(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new location object. Required Fields: latitude, longitude, message.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateLocation(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing location. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getLocation(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a single location by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listLocationsDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Lists all location objects matching filters. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listLocations(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all location objects matching filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyLocation(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Copies a location record and returns a new ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteLocation(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a location object. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countLocationsDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves a count of locations that match the supplied criteria. Required: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countLocations(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Counts the number of location records that match the supplied filters. Required: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createBeacon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new beacon object. Required Fields: proximityUUID, lockscreenMessage.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateBeacon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing beacon object. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getBeacon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a single beacon by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listBeaconsDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves beacon objects that match the supplied criteria. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listBeacons(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all beacon objects that match the provided filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyBeacon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Copies a beacon record and returns a new ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteBeacon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a beacon object. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countBeaconsDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves a count of beacons that match the supplied criteria. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countBeacons(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns the count of beacons that match the supplied filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new link object. Required Fields: url, title, type.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing link object. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a single link by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listLinksDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves links objects that match the supplied criteria. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listLinks(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all link objects that match the provided filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Copies a link record and returns a new ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a link object. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countLinksDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED: OR operator is not supported] Retrieves a count of links that match the supplied criteria. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countLinks(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns the count of links that match the supplied filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -481,208 +524,208 @@ def add_TemplatesServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.createTemplate,
-                    request_deserializer=io_dot_common_dot_template__pb2.PassTemplate.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.updateTemplate,
-                    request_deserializer=io_dot_common_dot_template__pb2.PassTemplate.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
             ),
             'getTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.getTemplate,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
             ),
             'getDefaultTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.getDefaultTemplate,
-                    request_deserializer=io_dot_common_dot_template__pb2.DefaultTemplateRequest.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.DefaultTemplateRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
             ),
             'copyTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.copyTemplate,
-                    request_deserializer=io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteTemplate,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listTemplatesForUserDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listTemplatesForUserDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
             ),
             'listTemplatesForUser': grpc.unary_stream_rpc_method_handler(
                     servicer.listTemplatesForUser,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
             ),
             'listTemplatesDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listTemplatesDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
             ),
             'listTemplates': grpc.unary_stream_rpc_method_handler(
                     servicer.listTemplates,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.SerializeToString,
             ),
             'countTemplatesDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countTemplatesDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countTemplates': grpc.unary_unary_rpc_method_handler(
                     servicer.countTemplates,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countTemplatesForUserDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countTemplatesForUserDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countTemplatesForUser': grpc.unary_unary_rpc_method_handler(
                     servicer.countTemplatesForUser,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'createLocation': grpc.unary_unary_rpc_method_handler(
                     servicer.createLocation,
-                    request_deserializer=io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateLocation': grpc.unary_unary_rpc_method_handler(
                     servicer.updateLocation,
-                    request_deserializer=io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
             ),
             'getLocation': grpc.unary_unary_rpc_method_handler(
                     servicer.getLocation,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
             ),
             'listLocationsDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listLocationsDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
             ),
             'listLocations': grpc.unary_stream_rpc_method_handler(
                     servicer.listLocations,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
             ),
             'copyLocation': grpc.unary_unary_rpc_method_handler(
                     servicer.copyLocation,
-                    request_deserializer=io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteLocation': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteLocation,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'countLocationsDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countLocationsDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countLocations': grpc.unary_unary_rpc_method_handler(
                     servicer.countLocations,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'createBeacon': grpc.unary_unary_rpc_method_handler(
                     servicer.createBeacon,
-                    request_deserializer=io_dot_common_dot_proximity__pb2.Beacon.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateBeacon': grpc.unary_unary_rpc_method_handler(
                     servicer.updateBeacon,
-                    request_deserializer=io_dot_common_dot_proximity__pb2.Beacon.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
             ),
             'getBeacon': grpc.unary_unary_rpc_method_handler(
                     servicer.getBeacon,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
             ),
             'listBeaconsDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listBeaconsDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
             ),
             'listBeacons': grpc.unary_stream_rpc_method_handler(
                     servicer.listBeacons,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
             ),
             'copyBeacon': grpc.unary_unary_rpc_method_handler(
                     servicer.copyBeacon,
-                    request_deserializer=io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteBeacon': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteBeacon,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'countBeaconsDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countBeaconsDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countBeacons': grpc.unary_unary_rpc_method_handler(
                     servicer.countBeacons,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'createLink': grpc.unary_unary_rpc_method_handler(
                     servicer.createLink,
-                    request_deserializer=io_dot_common_dot_links__pb2.Link.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateLink': grpc.unary_unary_rpc_method_handler(
                     servicer.updateLink,
-                    request_deserializer=io_dot_common_dot_links__pb2.Link.FromString,
-                    response_serializer=io_dot_common_dot_links__pb2.Link.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
             ),
             'getLink': grpc.unary_unary_rpc_method_handler(
                     servicer.getLink,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_links__pb2.Link.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
             ),
             'listLinksDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listLinksDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_links__pb2.Link.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
             ),
             'listLinks': grpc.unary_stream_rpc_method_handler(
                     servicer.listLinks,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_links__pb2.Link.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
             ),
             'copyLink': grpc.unary_unary_rpc_method_handler(
                     servicer.copyLink,
-                    request_deserializer=io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteLink': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteLink,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'countLinksDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countLinksDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countLinks': grpc.unary_unary_rpc_method_handler(
                     servicer.countLinks,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -693,7 +736,8 @@ def add_TemplatesServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Templates(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Templates API allows you to manage your pass templates for Apple Wallet and Google Wallet.
+    """
 
     @staticmethod
     def createTemplate(request,
@@ -710,8 +754,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/createTemplate',
-            io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -737,8 +781,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/updateTemplate',
-            io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplate.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.FromString,
             options,
             channel_credentials,
             insecure,
@@ -764,8 +808,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/getTemplate',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -791,8 +835,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/getDefaultTemplate',
-            io_dot_common_dot_template__pb2.DefaultTemplateRequest.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplate.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.DefaultTemplateRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplate.FromString,
             options,
             channel_credentials,
             insecure,
@@ -818,8 +862,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/copyTemplate',
-            io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -845,7 +889,7 @@ class Templates(object):
             request,
             target,
             '/io.Templates/deleteTemplate',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -872,8 +916,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listTemplatesForUserDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -899,8 +943,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listTemplatesForUser',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -926,8 +970,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listTemplatesDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -953,8 +997,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listTemplates',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_template__pb2.PassTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -980,8 +1024,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countTemplatesDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1007,8 +1051,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countTemplates',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1034,8 +1078,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countTemplatesForUserDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1061,8 +1105,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countTemplatesForUser',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1088,8 +1132,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/createLocation',
-            io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1115,8 +1159,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/updateLocation',
-            io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
-            io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1142,8 +1186,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/getLocation',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1169,8 +1213,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listLocationsDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1196,8 +1240,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listLocations',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.GPSLocation.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1223,8 +1267,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/copyLocation',
-            io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1250,7 +1294,7 @@ class Templates(object):
             request,
             target,
             '/io.Templates/deleteLocation',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1277,8 +1321,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countLocationsDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1304,8 +1348,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countLocations',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1331,8 +1375,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/createBeacon',
-            io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1358,8 +1402,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/updateBeacon',
-            io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
-            io_dot_common_dot_proximity__pb2.Beacon.FromString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1385,8 +1429,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/getBeacon',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_proximity__pb2.Beacon.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1412,8 +1456,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listBeaconsDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_proximity__pb2.Beacon.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1439,8 +1483,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listBeacons',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_proximity__pb2.Beacon.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_proximity__pb2.Beacon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1466,8 +1510,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/copyBeacon',
-            io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1493,7 +1537,7 @@ class Templates(object):
             request,
             target,
             '/io.Templates/deleteBeacon',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1520,8 +1564,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countBeaconsDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1547,8 +1591,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countBeacons',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1574,8 +1618,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/createLink',
-            io_dot_common_dot_links__pb2.Link.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1601,8 +1645,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/updateLink',
-            io_dot_common_dot_links__pb2.Link.SerializeToString,
-            io_dot_common_dot_links__pb2.Link.FromString,
+            passkit_dot_io_dot_common_dot_links__pb2.Link.SerializeToString,
+            passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1628,8 +1672,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/getLink',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_links__pb2.Link.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1655,8 +1699,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listLinksDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_links__pb2.Link.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1682,8 +1726,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/listLinks',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_links__pb2.Link.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_links__pb2.Link.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1709,8 +1753,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/copyLink',
-            io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_template__pb2.CopyObjectInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1736,7 +1780,7 @@ class Templates(object):
             request,
             target,
             '/io.Templates/deleteLink',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1763,8 +1807,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countLinksDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1790,8 +1834,8 @@ class Templates(object):
             request,
             target,
             '/io.Templates/countLinks',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,

@@ -3,18 +3,19 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import filter_pb2 as io_dot_common_dot_filter__pb2
-from passkit_io.common import pagination_pb2 as io_dot_common_dot_pagination__pb2
-from passkit_io.common import personal_pb2 as io_dot_common_dot_personal__pb2
-from passkit_io.common import reporting_pb2 as io_dot_common_dot_reporting__pb2
-from passkit_io.single_use_coupons import campaign_pb2 as io_dot_single__use__coupons_dot_campaign__pb2
-from passkit_io.single_use_coupons import coupon_pb2 as io_dot_single__use__coupons_dot_coupon__pb2
-from passkit_io.single_use_coupons import offer_pb2 as io_dot_single__use__coupons_dot_offer__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
+from passkit.io.common import pagination_pb2 as passkit_dot_io_dot_common_dot_pagination__pb2
+from passkit.io.common import personal_pb2 as passkit_dot_io_dot_common_dot_personal__pb2
+from passkit.io.common import reporting_pb2 as passkit_dot_io_dot_common_dot_reporting__pb2
+from passkit.io.single_use_coupons import campaign_pb2 as passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2
+from passkit.io.single_use_coupons import coupon_pb2 as passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2
+from passkit.io.single_use_coupons import offer_pb2 as passkit_dot_io_dot_single__use__coupons_dot_offer__pb2
 
 
 class SingleUseCouponsStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Coupons API offers a robust and adaptable solution for managing your digital coupon programs. Effortlessly create, update, and maintain mobile coupons for Apple Wallet and Google Wallet. Seamlessly integrate coupon functionality into your applications to deliver engaging, real-time promotions to your customers.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -24,324 +25,366 @@ class SingleUseCouponsStub(object):
         """
         self.createCouponCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/createCouponCampaign',
-                request_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateCouponCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/updateCouponCampaign',
-                request_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
                 _registered_method=True)
         self.getCouponCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/getCouponCampaign',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
                 _registered_method=True)
         self.deleteCouponCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/deleteCouponCampaign',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listCouponCampaignsDeprecated = channel.unary_stream(
                 '/single_use_coupons.SingleUseCoupons/listCouponCampaignsDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
                 _registered_method=True)
         self.listCouponCampaigns = channel.unary_stream(
                 '/single_use_coupons.SingleUseCoupons/listCouponCampaigns',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
                 _registered_method=True)
         self.getAnalytics = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/getAnalytics',
-                request_serializer=io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaignAnalyticsResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaignAnalyticsResponse.FromString,
                 _registered_method=True)
         self.createCouponOffer = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/createCouponOffer',
-                request_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateCouponOffer = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/updateCouponOffer',
-                request_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
                 _registered_method=True)
         self.getCouponOffer = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/getCouponOffer',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
                 _registered_method=True)
         self.deleteCouponOffer = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/deleteCouponOffer',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listCouponOffersDeprecated = channel.unary_stream(
                 '/single_use_coupons.SingleUseCoupons/listCouponOffersDeprecated',
-                request_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequestDeprecated.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequestDeprecated.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
                 _registered_method=True)
         self.listCouponOffers = channel.unary_stream(
                 '/single_use_coupons.SingleUseCoupons/listCouponOffers',
-                request_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequest.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
                 _registered_method=True)
         self.createCoupon = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/createCoupon',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateCoupon = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/updateCoupon',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.streamCouponUpdates = channel.stream_stream(
                 '/single_use_coupons.SingleUseCoupons/streamCouponUpdates',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.redeemCoupon = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/redeemCoupon',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateCouponExternalId = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/updateCouponExternalId',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.CouponNewExternalIdRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.CouponNewExternalIdRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.streamCouponRedemptions = channel.stream_stream(
                 '/single_use_coupons.SingleUseCoupons/streamCouponRedemptions',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.getCouponById = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/getCouponById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
                 _registered_method=True)
         self.getCouponByExternalId = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/getCouponByExternalId',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.ExternalIdRequest.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ExternalIdRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
                 _registered_method=True)
         self.voidCoupon = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/voidCoupon',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                _registered_method=True)
+        self.bulkVoidCoupons = channel.unary_unary(
+                '/single_use_coupons.SingleUseCoupons/bulkVoidCoupons',
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.BulkPassActionRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listCouponsByCouponCampaignDeprecated = channel.unary_stream(
                 '/single_use_coupons.SingleUseCoupons/listCouponsByCouponCampaignDeprecated',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
                 _registered_method=True)
         self.listCouponsByCouponCampaign = channel.unary_stream(
                 '/single_use_coupons.SingleUseCoupons/listCouponsByCouponCampaign',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
-                response_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
                 _registered_method=True)
         self.countCouponsByCouponCampaignDeprecated = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/countCouponsByCouponCampaignDeprecated',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countCouponsByCouponCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/countCouponsByCouponCampaign',
-                request_serializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.patchPerson = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/patchPerson',
-                request_serializer=io_dot_common_dot_personal__pb2.PersonRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_personal__pb2.PersonRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.copyCouponCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/copyCouponCampaign',
-                request_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CampaignCopyRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CampaignCopyRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.getMetaKeysForCampaign = channel.unary_unary(
                 '/single_use_coupons.SingleUseCoupons/getMetaKeysForCampaign',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Strings.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Strings.FromString,
                 _registered_method=True)
 
 
 class SingleUseCouponsServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Coupons API offers a robust and adaptable solution for managing your digital coupon programs. Effortlessly create, update, and maintain mobile coupons for Apple Wallet and Google Wallet. Seamlessly integrate coupon functionality into your applications to deliver engaging, real-time promotions to your customers.
+    """
 
     def createCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new single-use coupon campaign with design, rules, and configuration settings. Required fields: name and status.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates the configuration of an existing coupon campaign. Required fields: campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the details of a specific coupon campaign by id. Required fields: campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a coupon campaign by id. This also deletes its associated offer and voids all related coupons. Required fields: campaignId. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listCouponCampaignsDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all coupon campaigns using basic pagination. This version uses the legacy request format and is maintained for backward compatibility. New integrations should use the updated listCouponCampaigns call instead  as OR operator is not supported.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listCouponCampaigns(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists coupon campaigns with support for filters, sorting, and pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getAnalytics(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns analytics data (e.g., redemptions, activations) for a given coupon campaign. Required fields: classId (e.g. campaignId) and protocol (query parameter).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createCouponOffer(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new coupon offer, including title, pass design, and rules. Required fields: campaignId, offerTitle, offerDetails, beforeRedeemPassTemplateId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateCouponOffer(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing coupon offer’s settings, visuals, or redemption configuration. Required fields: campaignId, offerTitle, offerDetails, beforeRedeemPassTemplateId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getCouponOffer(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the full configuration of a coupon offer by ID. Required fields: offerId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteCouponOffer(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a coupon offer and invalidates all associated coupons. Required fields: offerId. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listCouponOffersDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all coupon offers using basic filters. This version uses the legacy request format and is maintained for backward compatibility. New integrations should use the updated listCouponOffers call instead as OR operator is not supported.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listCouponOffers(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists coupon offers with support for filters, sorting, and pagination. Required fields: campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createCoupon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new unique coupon assigned to a specific offer. Required fields: campaignId, offerId, pass data.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateCoupon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing coupon’s metadata or personalisation. Required fields: coupon id ,or externalId, offerId and campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def streamCouponUpdates(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """Streams updates for multiple coupons for batch processing.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def redeemCoupon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Marks a coupon as redeemed and triggers redemption-specific design. Required fields: coupon id , or externalId, offerId and campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateCouponExternalId(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates the external ID of an existing coupon. Required fields: coupon id , or externalId, newExternalId and campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def streamCouponRedemptions(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """Streams coupon redemptions for batch processing.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getCouponById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a coupon by its PassKit ID. Required fields: couponId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getCouponByExternalId(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a coupon using an external ID and campaign ID. Required fields: externalId and couponCampaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def voidCoupon(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Voids a coupon and invalidates it in the customer’s mobile wallet. Required fields: coupon id, or externalId, offerId and campaignId. Use with caution, as this action is irreversible.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def bulkVoidCoupons(self, request, context):
+        """Voids multiple coupons matching the given filters. All affected passes are invalidated. Required fields: classId, protocol and filters. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listCouponsByCouponCampaignDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all coupons for a campaign using basic pagination. This version uses the legacy request format and is maintained for backward compatibility. New integrations should use the updated listCouponsByCouponCampaign call instead as OR operator is not supported.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listCouponsByCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all coupons for a campaign using filters and pagination. Required fields: couponCampaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countCouponsByCouponCampaignDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Counts all coupons for a campaign. This version uses the legacy request format and is maintained for backward compatibility. New integrations should use the updated countCouponsByCouponCampaign call instead as OR operator is not supported.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countCouponsByCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Counts all coupons for a campaign using advanced filters. Required fields: couponCampaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchPerson(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates the personal information of the coupon holder (e.g., name, email). Required fields: couponId, or externalId + classId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyCouponCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a copy of an existing coupon campaign. Required fields: campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getMetaKeysForCampaign(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves meta keys (custom fields) for a specific campaign. Required fields: campaignId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -351,148 +394,153 @@ def add_SingleUseCouponsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createCouponCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.createCouponCampaign,
-                    request_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateCouponCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCouponCampaign,
-                    request_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
             ),
             'getCouponCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.getCouponCampaign,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
             ),
             'deleteCouponCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteCouponCampaign,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listCouponCampaignsDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listCouponCampaignsDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
             ),
             'listCouponCampaigns': grpc.unary_stream_rpc_method_handler(
                     servicer.listCouponCampaigns,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
             ),
             'getAnalytics': grpc.unary_unary_rpc_method_handler(
                     servicer.getAnalytics,
-                    request_deserializer=io_dot_common_dot_reporting__pb2.AnalyticsRequest.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaignAnalyticsResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaignAnalyticsResponse.SerializeToString,
             ),
             'createCouponOffer': grpc.unary_unary_rpc_method_handler(
                     servicer.createCouponOffer,
-                    request_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateCouponOffer': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCouponOffer,
-                    request_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
             ),
             'getCouponOffer': grpc.unary_unary_rpc_method_handler(
                     servicer.getCouponOffer,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
             ),
             'deleteCouponOffer': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteCouponOffer,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listCouponOffersDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listCouponOffersDeprecated,
-                    request_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequestDeprecated.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequestDeprecated.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
             ),
             'listCouponOffers': grpc.unary_stream_rpc_method_handler(
                     servicer.listCouponOffers,
-                    request_deserializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequest.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
             ),
             'createCoupon': grpc.unary_unary_rpc_method_handler(
                     servicer.createCoupon,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateCoupon': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCoupon,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'streamCouponUpdates': grpc.stream_stream_rpc_method_handler(
                     servicer.streamCouponUpdates,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'redeemCoupon': grpc.unary_unary_rpc_method_handler(
                     servicer.redeemCoupon,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateCouponExternalId': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCouponExternalId,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.CouponNewExternalIdRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.CouponNewExternalIdRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'streamCouponRedemptions': grpc.stream_stream_rpc_method_handler(
                     servicer.streamCouponRedemptions,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'getCouponById': grpc.unary_unary_rpc_method_handler(
                     servicer.getCouponById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
             ),
             'getCouponByExternalId': grpc.unary_unary_rpc_method_handler(
                     servicer.getCouponByExternalId,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.ExternalIdRequest.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ExternalIdRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
             ),
             'voidCoupon': grpc.unary_unary_rpc_method_handler(
                     servicer.voidCoupon,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'bulkVoidCoupons': grpc.unary_unary_rpc_method_handler(
+                    servicer.bulkVoidCoupons,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.BulkPassActionRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listCouponsByCouponCampaignDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listCouponsByCouponCampaignDeprecated,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
             ),
             'listCouponsByCouponCampaign': grpc.unary_stream_rpc_method_handler(
                     servicer.listCouponsByCouponCampaign,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.FromString,
-                    response_serializer=io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
             ),
             'countCouponsByCouponCampaignDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countCouponsByCouponCampaignDeprecated,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countCouponsByCouponCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.countCouponsByCouponCampaign,
-                    request_deserializer=io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'patchPerson': grpc.unary_unary_rpc_method_handler(
                     servicer.patchPerson,
-                    request_deserializer=io_dot_common_dot_personal__pb2.PersonRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_personal__pb2.PersonRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'copyCouponCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.copyCouponCampaign,
-                    request_deserializer=io_dot_single__use__coupons_dot_campaign__pb2.CampaignCopyRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CampaignCopyRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'getMetaKeysForCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.getMetaKeysForCampaign,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Strings.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Strings.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -503,7 +551,8 @@ def add_SingleUseCouponsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class SingleUseCoupons(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Coupons API offers a robust and adaptable solution for managing your digital coupon programs. Effortlessly create, update, and maintain mobile coupons for Apple Wallet and Google Wallet. Seamlessly integrate coupon functionality into your applications to deliver engaging, real-time promotions to your customers.
+    """
 
     @staticmethod
     def createCouponCampaign(request,
@@ -520,8 +569,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/createCouponCampaign',
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -547,8 +596,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/updateCouponCampaign',
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
             options,
             channel_credentials,
             insecure,
@@ -574,8 +623,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/getCouponCampaign',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
             options,
             channel_credentials,
             insecure,
@@ -601,7 +650,7 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/deleteCouponCampaign',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -628,8 +677,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/listCouponCampaignsDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
             options,
             channel_credentials,
             insecure,
@@ -655,8 +704,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/listCouponCampaigns',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaign.FromString,
             options,
             channel_credentials,
             insecure,
@@ -682,8 +731,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/getAnalytics',
-            io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
-            io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaignAnalyticsResponse.FromString,
+            passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CouponCampaignAnalyticsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -709,8 +758,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/createCouponOffer',
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -736,8 +785,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/updateCouponOffer',
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
             options,
             channel_credentials,
             insecure,
@@ -763,8 +812,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/getCouponOffer',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
             options,
             channel_credentials,
             insecure,
@@ -790,7 +839,7 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/deleteCouponOffer',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -817,8 +866,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/listCouponOffersDeprecated',
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequestDeprecated.SerializeToString,
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequestDeprecated.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
             options,
             channel_credentials,
             insecure,
@@ -844,8 +893,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/listCouponOffers',
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequest.SerializeToString,
-            io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffersListRequest.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_offer__pb2.CouponOffer.FromString,
             options,
             channel_credentials,
             insecure,
@@ -871,8 +920,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/createCoupon',
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -898,8 +947,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/updateCoupon',
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -925,8 +974,8 @@ class SingleUseCoupons(object):
             request_iterator,
             target,
             '/single_use_coupons.SingleUseCoupons/streamCouponUpdates',
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -952,8 +1001,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/redeemCoupon',
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -979,8 +1028,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/updateCouponExternalId',
-            io_dot_single__use__coupons_dot_coupon__pb2.CouponNewExternalIdRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.CouponNewExternalIdRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1006,8 +1055,8 @@ class SingleUseCoupons(object):
             request_iterator,
             target,
             '/single_use_coupons.SingleUseCoupons/streamCouponRedemptions',
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1033,8 +1082,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/getCouponById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1060,8 +1109,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/getCouponByExternalId',
-            io_dot_single__use__coupons_dot_coupon__pb2.ExternalIdRequest.SerializeToString,
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ExternalIdRequest.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1087,7 +1136,34 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/voidCoupon',
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def bulkVoidCoupons(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/single_use_coupons.SingleUseCoupons/bulkVoidCoupons',
+            passkit_dot_io_dot_common_dot_common__objects__pb2.BulkPassActionRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1114,8 +1190,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/listCouponsByCouponCampaignDeprecated',
-            io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1141,8 +1217,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/listCouponsByCouponCampaign',
-            io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
-            io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.Coupon.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1168,8 +1244,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/countCouponsByCouponCampaignDeprecated',
-            io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequestDeprecated.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1195,8 +1271,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/countCouponsByCouponCampaign',
-            io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_coupon__pb2.ListRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1222,8 +1298,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/patchPerson',
-            io_dot_common_dot_personal__pb2.PersonRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_personal__pb2.PersonRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1249,8 +1325,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/copyCouponCampaign',
-            io_dot_single__use__coupons_dot_campaign__pb2.CampaignCopyRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_single__use__coupons_dot_campaign__pb2.CampaignCopyRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1276,8 +1352,8 @@ class SingleUseCoupons(object):
             request,
             target,
             '/single_use_coupons.SingleUseCoupons/getMetaKeysForCampaign',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Strings.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Strings.FromString,
             options,
             channel_credentials,
             insecure,

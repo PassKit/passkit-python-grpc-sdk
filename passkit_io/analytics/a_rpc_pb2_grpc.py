@@ -2,11 +2,12 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from passkit_io.common import reporting_pb2 as io_dot_common_dot_reporting__pb2
+from passkit.io.common import reporting_pb2 as passkit_dot_io_dot_common_dot_reporting__pb2
 
 
 class AnalyticsStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Analytics provides access to daily, monthly, or yearly analytics reports.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -16,16 +17,17 @@ class AnalyticsStub(object):
         """
         self.getAnalytics = channel.unary_unary(
                 '/analytics.Analytics/getAnalytics',
-                request_serializer=io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_reporting__pb2.AnalyticsResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsResponse.FromString,
                 _registered_method=True)
 
 
 class AnalyticsServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Analytics provides access to daily, monthly, or yearly analytics reports.
+    """
 
     def getAnalytics(self, request, context):
-        """Retrieve a daily, monthly or yearly record.
+        """Retrieves analytics data for a class or project, such as daily check-ins, installs, redemptions, etc. Required fields: classId, protocol.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -36,8 +38,8 @@ def add_AnalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'getAnalytics': grpc.unary_unary_rpc_method_handler(
                     servicer.getAnalytics,
-                    request_deserializer=io_dot_common_dot_reporting__pb2.AnalyticsRequest.FromString,
-                    response_serializer=io_dot_common_dot_reporting__pb2.AnalyticsResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -48,7 +50,8 @@ def add_AnalyticsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Analytics(object):
-    """Missing associated documentation comment in .proto file."""
+    """Analytics provides access to daily, monthly, or yearly analytics reports.
+    """
 
     @staticmethod
     def getAnalytics(request,
@@ -65,8 +68,8 @@ class Analytics(object):
             request,
             target,
             '/analytics.Analytics/getAnalytics',
-            io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
-            io_dot_common_dot_reporting__pb2.AnalyticsResponse.FromString,
+            passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsResponse.FromString,
             options,
             channel_credentials,
             insecure,

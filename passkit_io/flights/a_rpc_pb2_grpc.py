@@ -3,15 +3,16 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.flights import airport_pb2 as io_dot_flights_dot_airport__pb2
-from passkit_io.flights import boarding_pass_pb2 as io_dot_flights_dot_boarding__pass__pb2
-from passkit_io.flights import carrier_pb2 as io_dot_flights_dot_carrier__pb2
-from passkit_io.flights import flight_designator_pb2 as io_dot_flights_dot_flight__designator__pb2
-from passkit_io.flights import flight_pb2 as io_dot_flights_dot_flight__pb2
+from passkit.io.flights import airport_pb2 as passkit_dot_io_dot_flights_dot_airport__pb2
+from passkit.io.flights import boarding_pass_pb2 as passkit_dot_io_dot_flights_dot_boarding__pass__pb2
+from passkit.io.flights import carrier_pb2 as passkit_dot_io_dot_flights_dot_carrier__pb2
+from passkit.io.flights import flight_designator_pb2 as passkit_dot_io_dot_flights_dot_flight__designator__pb2
+from passkit.io.flights import flight_pb2 as passkit_dot_io_dot_flights_dot_flight__pb2
 
 
 class FlightsStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Manage digital boarding passes for Apple Wallet and Google Wallet with the PassKit Flights API.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -21,256 +22,257 @@ class FlightsStub(object):
         """
         self.createPort = channel.unary_unary(
                 '/flights.Flights/createPort',
-                request_serializer=io_dot_flights_dot_airport__pb2.Port.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getPort = channel.unary_unary(
                 '/flights.Flights/getPort',
-                request_serializer=io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
-                response_deserializer=io_dot_flights_dot_airport__pb2.Port.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.FromString,
                 _registered_method=True)
         self.updatePort = channel.unary_unary(
                 '/flights.Flights/updatePort',
-                request_serializer=io_dot_flights_dot_airport__pb2.Port.SerializeToString,
-                response_deserializer=io_dot_flights_dot_airport__pb2.Port.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.FromString,
                 _registered_method=True)
         self.deletePort = channel.unary_unary(
                 '/flights.Flights/deletePort',
-                request_serializer=io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.createCarrier = channel.unary_unary(
                 '/flights.Flights/createCarrier',
-                request_serializer=io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getCarrier = channel.unary_unary(
                 '/flights.Flights/getCarrier',
-                request_serializer=io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
-                response_deserializer=io_dot_flights_dot_carrier__pb2.Carrier.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.FromString,
                 _registered_method=True)
         self.updateCarrier = channel.unary_unary(
                 '/flights.Flights/updateCarrier',
-                request_serializer=io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
-                response_deserializer=io_dot_flights_dot_carrier__pb2.Carrier.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.FromString,
                 _registered_method=True)
         self.deleteCarrier = channel.unary_unary(
                 '/flights.Flights/deleteCarrier',
-                request_serializer=io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.createFlightDesignator = channel.unary_unary(
                 '/flights.Flights/createFlightDesignator',
-                request_serializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getFlightDesignator = channel.unary_unary(
                 '/flights.Flights/getFlightDesignator',
-                request_serializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
-                response_deserializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
                 _registered_method=True)
         self.updateFlightDesignator = channel.unary_unary(
                 '/flights.Flights/updateFlightDesignator',
-                request_serializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
-                response_deserializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
                 _registered_method=True)
         self.deleteFlightDesignator = channel.unary_unary(
                 '/flights.Flights/deleteFlightDesignator',
-                request_serializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.createFlight = channel.unary_unary(
                 '/flights.Flights/createFlight',
-                request_serializer=io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getFlight = channel.unary_unary(
                 '/flights.Flights/getFlight',
-                request_serializer=io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
-                response_deserializer=io_dot_flights_dot_flight__pb2.Flight.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.FromString,
                 _registered_method=True)
         self.updateFlight = channel.unary_unary(
                 '/flights.Flights/updateFlight',
-                request_serializer=io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
-                response_deserializer=io_dot_flights_dot_flight__pb2.Flight.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.FromString,
                 _registered_method=True)
         self.deleteFlight = channel.unary_unary(
                 '/flights.Flights/deleteFlight',
-                request_serializer=io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.createBoardingPass = channel.unary_unary(
                 '/flights.Flights/createBoardingPass',
-                request_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
-                response_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
                 _registered_method=True)
         self.getBoardingPassRecord = channel.unary_unary(
                 '/flights.Flights/getBoardingPassRecord',
-                request_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
-                response_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
                 _registered_method=True)
         self.getBoardingPass = channel.unary_unary(
                 '/flights.Flights/getBoardingPass',
-                request_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRequest.SerializeToString,
-                response_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
                 _registered_method=True)
         self.updateBoardingPass = channel.unary_unary(
                 '/flights.Flights/updateBoardingPass',
-                request_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
-                response_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
+                request_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
                 _registered_method=True)
         self.deleteBoardingPass = channel.unary_unary(
                 '/flights.Flights/deleteBoardingPass',
-                request_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
 
 
 class FlightsServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Manage digital boarding passes for Apple Wallet and Google Wallet with the PassKit Flights API.
+    """
 
     def createPort(self, request, context):
-        """Create an airport record. Optional method allowing the carrier to specify how the airport name is rendered in the pass and the GPS location that will trigger a lock-screen alert.
+        """Create an airport record. Optional method allowing the carrier to specify how the airport name is rendered in the pass and the GPS location that will trigger a lock-screen alert. Required Fields: airportCode, cityName, airportName, countryCode, timezone.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getPort(self, request, context):
-        """Retrieve an airport record. The AirportCode is the three character IATA code or 4 character ICAO code.
+        """Retrieve an airport record. The AirportCode is the three character IATA code or 4 character ICAO code. Required Fields: airportCode.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updatePort(self, request, context):
-        """Update an airport record.
+        """Update an airport record. Required Fields: airportCode.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deletePort(self, request, context):
-        """Delete an airport record. Deleting a record will remove any custom data provided. A new Airport record may be automatically created for a flight departing, arriving or transiting an airport which does not have a record, using publicly available data.
+        """Delete an airport record. Deleting a record will remove any custom data provided. A new Airport record may be automatically created for a flight departing, arriving or transiting an airport which does not have a record, using publicly available data. Required Fields: airportCode.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createCarrier(self, request, context):
-        """Create a carrier record. All Flight Designations and Flights must have a carrier record.
+        """Create a carrier record. All Flight Designators and Flights must have a carrier record. Required Fields: carrierCode, airlineName, passTypeIdentifier.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getCarrier(self, request, context):
-        """Retrieve a carrier record.
+        """Retrieve a carrier record. Required Fields: carrierCode.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateCarrier(self, request, context):
-        """Update a carrier record
+        """Update a carrier record. Required Fields: carrierCode.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteCarrier(self, request, context):
-        """Delete a carrier record.
+        """Delete a carrier record. Required Fields: carrierCode.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createFlightDesignator(self, request, context):
-        """Create a flight designator record. As much default information as possible should be provided to facilitate the automatic generation of flight records.
+        """Create a flight designator record. As much default information as possible should be provided to facilitate the automatic generation of flight records. Required Fields: carrierCode, flightNumber, revision, schedule, origin, destination.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getFlightDesignator(self, request, context):
-        """Retrieve a flight designation record.
+        """Retrieve a flight designator record. Required Fields: carrierCode, flightNumber, revision.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateFlightDesignator(self, request, context):
-        """Update a flight designation record.
+        """Update a flight designator record. Required Fields: carrierCode, flightNumber, revision.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteFlightDesignator(self, request, context):
-        """Delete a flight designation record.
+        """Delete a flight designator record. Required Fields: carrierCode, flightNumber, revision.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createFlight(self, request, context):
-        """Create a flight record. In practice, this method is not often used, since flight records can be automatically generated. Any information in the flight record will override information in the carrier and flight designation records.
+        """Create a flight record. In practice, this method is not often used, since flight records can be automatically generated. Any information in the flight record will override information in the carrier and flight designator records. Required Fields: carrierCode, flightNumber, departureDate, boardingPoint, deplaningPoint.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getFlight(self, request, context):
-        """Retrieve a flight record.
+        """Retrieve a flight record. Required Fields: carrierCode, flightNumber, departureDate, boardingPoint, deplaningPoint.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateFlight(self, request, context):
-        """Update a flight record.
+        """Update a flight record. Required Fields: carrierCode, flightNumber, departureDate, boardingPoint, deplaningPoint.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteFlight(self, request, context):
-        """Delete a flight record.
+        """Delete a flight record. Required Fields: carrierCode, flightNumber, departureDate, boardingPoint, deplaningPoint.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createBoardingPass(self, request, context):
-        """Create a boarding pass record. Flight related information not present in the boarding pass record will be populated from the flight, flight designator or carrier records.
+        """Create a boarding pass record. Flight related information not present in the boarding pass record will be populated from the flight, flight designator or carrier records.  Required Fields: operatingCarrierPNR, boardingPoint, deplaningPoint, carrierCode, flightNumber, departureDate, passenger, sequenceNumber.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getBoardingPassRecord(self, request, context):
-        """Retrieve a boarding pass record.
+        """Retrieve a boarding pass record. Required Fields: ticketNumber or index or passId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getBoardingPass(self, request, context):
-        """Retrieve digital boarding pass(es) in the requested format by ticket number, index, PNR or id.
+        """Retrieve digital boarding pass(es) in the requested format by ticket number, index, PNR or id. Required Fields: ticketNumber or index or passId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateBoardingPass(self, request, context):
-        """Update a boarding pass record.
+        """Update a boarding pass record. Required Fields: operatingCarrierPNR, boardingPoint, deplaningPoint, carrierCode, flightNumber, departureDate, passenger, sequenceNumber.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteBoardingPass(self, request, context):
-        """Delete a boarding pass record.
+        """Delete a boarding pass record. Required Fields: ticketNumber or index or passId
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -281,107 +283,107 @@ def add_FlightsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createPort': grpc.unary_unary_rpc_method_handler(
                     servicer.createPort,
-                    request_deserializer=io_dot_flights_dot_airport__pb2.Port.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getPort': grpc.unary_unary_rpc_method_handler(
                     servicer.getPort,
-                    request_deserializer=io_dot_flights_dot_airport__pb2.AirportCode.FromString,
-                    response_serializer=io_dot_flights_dot_airport__pb2.Port.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_airport__pb2.AirportCode.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.SerializeToString,
             ),
             'updatePort': grpc.unary_unary_rpc_method_handler(
                     servicer.updatePort,
-                    request_deserializer=io_dot_flights_dot_airport__pb2.Port.FromString,
-                    response_serializer=io_dot_flights_dot_airport__pb2.Port.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_airport__pb2.Port.SerializeToString,
             ),
             'deletePort': grpc.unary_unary_rpc_method_handler(
                     servicer.deletePort,
-                    request_deserializer=io_dot_flights_dot_airport__pb2.AirportCode.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_airport__pb2.AirportCode.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'createCarrier': grpc.unary_unary_rpc_method_handler(
                     servicer.createCarrier,
-                    request_deserializer=io_dot_flights_dot_carrier__pb2.Carrier.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getCarrier': grpc.unary_unary_rpc_method_handler(
                     servicer.getCarrier,
-                    request_deserializer=io_dot_flights_dot_carrier__pb2.CarrierCode.FromString,
-                    response_serializer=io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_carrier__pb2.CarrierCode.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
             ),
             'updateCarrier': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCarrier,
-                    request_deserializer=io_dot_flights_dot_carrier__pb2.Carrier.FromString,
-                    response_serializer=io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
             ),
             'deleteCarrier': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteCarrier,
-                    request_deserializer=io_dot_flights_dot_carrier__pb2.CarrierCode.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_carrier__pb2.CarrierCode.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'createFlightDesignator': grpc.unary_unary_rpc_method_handler(
                     servicer.createFlightDesignator,
-                    request_deserializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getFlightDesignator': grpc.unary_unary_rpc_method_handler(
                     servicer.getFlightDesignator,
-                    request_deserializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.FromString,
-                    response_serializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
             ),
             'updateFlightDesignator': grpc.unary_unary_rpc_method_handler(
                     servicer.updateFlightDesignator,
-                    request_deserializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
-                    response_serializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
             ),
             'deleteFlightDesignator': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteFlightDesignator,
-                    request_deserializer=io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'createFlight': grpc.unary_unary_rpc_method_handler(
                     servicer.createFlight,
-                    request_deserializer=io_dot_flights_dot_flight__pb2.Flight.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getFlight': grpc.unary_unary_rpc_method_handler(
                     servicer.getFlight,
-                    request_deserializer=io_dot_flights_dot_flight__pb2.FlightRequest.FromString,
-                    response_serializer=io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__pb2.FlightRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
             ),
             'updateFlight': grpc.unary_unary_rpc_method_handler(
                     servicer.updateFlight,
-                    request_deserializer=io_dot_flights_dot_flight__pb2.Flight.FromString,
-                    response_serializer=io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
             ),
             'deleteFlight': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteFlight,
-                    request_deserializer=io_dot_flights_dot_flight__pb2.FlightRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_flight__pb2.FlightRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'createBoardingPass': grpc.unary_unary_rpc_method_handler(
                     servicer.createBoardingPass,
-                    request_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
-                    response_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.SerializeToString,
             ),
             'getBoardingPassRecord': grpc.unary_unary_rpc_method_handler(
                     servicer.getBoardingPassRecord,
-                    request_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.FromString,
-                    response_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
             ),
             'getBoardingPass': grpc.unary_unary_rpc_method_handler(
                     servicer.getBoardingPass,
-                    request_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRequest.FromString,
-                    response_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.SerializeToString,
             ),
             'updateBoardingPass': grpc.unary_unary_rpc_method_handler(
                     servicer.updateBoardingPass,
-                    request_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
-                    response_serializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
+                    response_serializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
             ),
             'deleteBoardingPass': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteBoardingPass,
-                    request_deserializer=io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
@@ -393,7 +395,8 @@ def add_FlightsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Flights(object):
-    """Missing associated documentation comment in .proto file."""
+    """Manage digital boarding passes for Apple Wallet and Google Wallet with the PassKit Flights API.
+    """
 
     @staticmethod
     def createPort(request,
@@ -410,7 +413,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/createPort',
-            io_dot_flights_dot_airport__pb2.Port.SerializeToString,
+            passkit_dot_io_dot_flights_dot_airport__pb2.Port.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -437,8 +440,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/getPort',
-            io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
-            io_dot_flights_dot_airport__pb2.Port.FromString,
+            passkit_dot_io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
+            passkit_dot_io_dot_flights_dot_airport__pb2.Port.FromString,
             options,
             channel_credentials,
             insecure,
@@ -464,8 +467,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/updatePort',
-            io_dot_flights_dot_airport__pb2.Port.SerializeToString,
-            io_dot_flights_dot_airport__pb2.Port.FromString,
+            passkit_dot_io_dot_flights_dot_airport__pb2.Port.SerializeToString,
+            passkit_dot_io_dot_flights_dot_airport__pb2.Port.FromString,
             options,
             channel_credentials,
             insecure,
@@ -491,7 +494,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/deletePort',
-            io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
+            passkit_dot_io_dot_flights_dot_airport__pb2.AirportCode.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -518,7 +521,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/createCarrier',
-            io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
+            passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -545,8 +548,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/getCarrier',
-            io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
-            io_dot_flights_dot_carrier__pb2.Carrier.FromString,
+            passkit_dot_io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
+            passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.FromString,
             options,
             channel_credentials,
             insecure,
@@ -572,8 +575,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/updateCarrier',
-            io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
-            io_dot_flights_dot_carrier__pb2.Carrier.FromString,
+            passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.SerializeToString,
+            passkit_dot_io_dot_flights_dot_carrier__pb2.Carrier.FromString,
             options,
             channel_credentials,
             insecure,
@@ -599,7 +602,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/deleteCarrier',
-            io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
+            passkit_dot_io_dot_flights_dot_carrier__pb2.CarrierCode.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -626,7 +629,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/createFlightDesignator',
-            io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -653,8 +656,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/getFlightDesignator',
-            io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
-            io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
+            passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
             options,
             channel_credentials,
             insecure,
@@ -680,8 +683,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/updateFlightDesignator',
-            io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
-            io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
+            passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignator.FromString,
             options,
             channel_credentials,
             insecure,
@@ -707,7 +710,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/deleteFlightDesignator',
-            io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__designator__pb2.FlightDesignatorRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -734,7 +737,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/createFlight',
-            io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -761,8 +764,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/getFlight',
-            io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
-            io_dot_flights_dot_flight__pb2.Flight.FromString,
+            passkit_dot_io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__pb2.Flight.FromString,
             options,
             channel_credentials,
             insecure,
@@ -788,8 +791,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/updateFlight',
-            io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
-            io_dot_flights_dot_flight__pb2.Flight.FromString,
+            passkit_dot_io_dot_flights_dot_flight__pb2.Flight.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__pb2.Flight.FromString,
             options,
             channel_credentials,
             insecure,
@@ -815,7 +818,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/deleteFlight',
-            io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_flight__pb2.FlightRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -842,8 +845,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/createBoardingPass',
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -869,8 +872,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/getBoardingPassRecord',
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -896,8 +899,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/getBoardingPass',
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRequest.SerializeToString,
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassesResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -923,8 +926,8 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/updateBoardingPass',
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.SerializeToString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -950,7 +953,7 @@ class Flights(object):
             request,
             target,
             '/flights.Flights/deleteBoardingPass',
-            io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
+            passkit_dot_io_dot_flights_dot_boarding__pass__pb2.BoardingPassRecordRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,

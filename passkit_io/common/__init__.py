@@ -206,3 +206,13 @@ def get_note_pb2():
 def get_note_pb2_grpc():
     import passkit_io.common.note_pb2_grpc
     return passkit_io.common.note_pb2_grpc
+
+
+def get_semantics_pb2():
+    import passkit_io.common.semantics_pb2
+    return passkit_io.common.semantics_pb2
+
+
+def get_semantics_pb2_grpc():
+    import passkit_io.common.semantics_pb2_grpc
+    return passkit_io.common.semantics_pb2_grpc

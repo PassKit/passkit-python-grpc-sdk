@@ -3,9 +3,9 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.raw import pass_pb2 as io_dot_raw_dot_pass__pb2
-from passkit_io.raw import project_pb2 as io_dot_raw_dot_project__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.raw import pass_pb2 as passkit_dot_io_dot_raw_dot_pass__pb2
+from passkit.io.raw import project_pb2 as passkit_dot_io_dot_raw_dot_project__pb2
 
 
 class RawStub(object):
@@ -19,68 +19,68 @@ class RawStub(object):
         """
         self.createPassProject = channel.unary_unary(
                 '/raw.Raw/createPassProject',
-                request_serializer=io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updatePassProject = channel.unary_unary(
                 '/raw.Raw/updatePassProject',
-                request_serializer=io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
-                response_deserializer=io_dot_raw_dot_project__pb2.PassProject.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.FromString,
                 _registered_method=True)
         self.getPassProject = channel.unary_unary(
                 '/raw.Raw/getPassProject',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_raw_dot_project__pb2.PassProject.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.FromString,
                 _registered_method=True)
         self.copyPassProject = channel.unary_unary(
                 '/raw.Raw/copyPassProject',
-                request_serializer=io_dot_raw_dot_project__pb2.PassProjectCopyRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProjectCopyRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deletePassProject = channel.unary_unary(
                 '/raw.Raw/deletePassProject',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.createPass = channel.unary_unary(
                 '/raw.Raw/createPass',
-                request_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updatePass = channel.unary_unary(
                 '/raw.Raw/updatePass',
-                request_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.streamPassUpdates = channel.stream_stream(
                 '/raw.Raw/streamPassUpdates',
-                request_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.getPassById = channel.unary_unary(
                 '/raw.Raw/getPassById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
                 _registered_method=True)
         self.getPassByExternalId = channel.unary_unary(
                 '/raw.Raw/getPassByExternalId',
-                request_serializer=io_dot_raw_dot_pass__pb2.PassRecordByExternalIdRequest.SerializeToString,
-                response_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.PassRecordByExternalIdRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
                 _registered_method=True)
         self.deletePass = channel.unary_unary(
                 '/raw.Raw/deletePass',
-                request_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listPassesByPassProject = channel.unary_stream(
                 '/raw.Raw/listPassesByPassProject',
-                request_serializer=io_dot_raw_dot_pass__pb2.ListPassesByPassProjectRequest.SerializeToString,
-                response_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.ListPassesByPassProjectRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
                 _registered_method=True)
         self.listPassesByPassTemplate = channel.unary_stream(
                 '/raw.Raw/listPassesByPassTemplate',
-                request_serializer=io_dot_raw_dot_pass__pb2.ListPassesByPassTemplateRequest.SerializeToString,
-                response_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
+                request_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.ListPassesByPassTemplateRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
                 _registered_method=True)
 
 
@@ -88,79 +88,92 @@ class RawServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def createPassProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a Pass Project. Required Fields: name, protocol, classId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updatePassProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing Pass Project. Required Fields: id, name, protocol, classId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getPassProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Pass Project by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyPassProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Copies an existing Pass Project. Required Fields: id (of the source PassProject).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deletePassProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a Pass Project by ID. Deleting a Pass Project results in all passes being invalidated and removed. Use with caution. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createPass(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new Pass record. Required Fields: passProjectId, externalId, and fields required by protocol template.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updatePass(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing Pass record. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def streamPassUpdates(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """Streams multiple Pass updates via gRPC (not available via REST). Required Fields: id for each Pass.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getPassById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Pass by its internal ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getPassByExternalId(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Pass by its external ID and Pass Project ID. Required Fields: passProjectId, externalId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deletePass(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a Pass record. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listPassesByPassProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all passes for a Pass Project. Supports pagination. Required Fields: passProjectId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listPassesByPassTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all passes for a Pass Template. Supports pagination. Required Fields: passTemplateId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -170,68 +183,68 @@ def add_RawServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createPassProject': grpc.unary_unary_rpc_method_handler(
                     servicer.createPassProject,
-                    request_deserializer=io_dot_raw_dot_project__pb2.PassProject.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updatePassProject': grpc.unary_unary_rpc_method_handler(
                     servicer.updatePassProject,
-                    request_deserializer=io_dot_raw_dot_project__pb2.PassProject.FromString,
-                    response_serializer=io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.FromString,
+                    response_serializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
             ),
             'getPassProject': grpc.unary_unary_rpc_method_handler(
                     servicer.getPassProject,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
             ),
             'copyPassProject': grpc.unary_unary_rpc_method_handler(
                     servicer.copyPassProject,
-                    request_deserializer=io_dot_raw_dot_project__pb2.PassProjectCopyRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_project__pb2.PassProjectCopyRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deletePassProject': grpc.unary_unary_rpc_method_handler(
                     servicer.deletePassProject,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'createPass': grpc.unary_unary_rpc_method_handler(
                     servicer.createPass,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updatePass': grpc.unary_unary_rpc_method_handler(
                     servicer.updatePass,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'streamPassUpdates': grpc.stream_stream_rpc_method_handler(
                     servicer.streamPassUpdates,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'getPassById': grpc.unary_unary_rpc_method_handler(
                     servicer.getPassById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
             ),
             'getPassByExternalId': grpc.unary_unary_rpc_method_handler(
                     servicer.getPassByExternalId,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.PassRecordByExternalIdRequest.FromString,
-                    response_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.PassRecordByExternalIdRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
             ),
             'deletePass': grpc.unary_unary_rpc_method_handler(
                     servicer.deletePass,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.Pass.FromString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listPassesByPassProject': grpc.unary_stream_rpc_method_handler(
                     servicer.listPassesByPassProject,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.ListPassesByPassProjectRequest.FromString,
-                    response_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.ListPassesByPassProjectRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
             ),
             'listPassesByPassTemplate': grpc.unary_stream_rpc_method_handler(
                     servicer.listPassesByPassTemplate,
-                    request_deserializer=io_dot_raw_dot_pass__pb2.ListPassesByPassTemplateRequest.FromString,
-                    response_serializer=io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_raw_dot_pass__pb2.ListPassesByPassTemplateRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -259,8 +272,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/createPassProject',
-            io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -286,8 +299,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/updatePassProject',
-            io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
-            io_dot_raw_dot_project__pb2.PassProject.FromString,
+            passkit_dot_io_dot_raw_dot_project__pb2.PassProject.SerializeToString,
+            passkit_dot_io_dot_raw_dot_project__pb2.PassProject.FromString,
             options,
             channel_credentials,
             insecure,
@@ -313,8 +326,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/getPassProject',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_raw_dot_project__pb2.PassProject.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_raw_dot_project__pb2.PassProject.FromString,
             options,
             channel_credentials,
             insecure,
@@ -340,8 +353,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/copyPassProject',
-            io_dot_raw_dot_project__pb2.PassProjectCopyRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_raw_dot_project__pb2.PassProjectCopyRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -367,7 +380,7 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/deletePassProject',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -394,8 +407,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/createPass',
-            io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -421,8 +434,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/updatePass',
-            io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -448,8 +461,8 @@ class Raw(object):
             request_iterator,
             target,
             '/raw.Raw/streamPassUpdates',
-            io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -475,8 +488,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/getPassById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_raw_dot_pass__pb2.Pass.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
             options,
             channel_credentials,
             insecure,
@@ -502,8 +515,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/getPassByExternalId',
-            io_dot_raw_dot_pass__pb2.PassRecordByExternalIdRequest.SerializeToString,
-            io_dot_raw_dot_pass__pb2.Pass.FromString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.PassRecordByExternalIdRequest.SerializeToString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
             options,
             channel_credentials,
             insecure,
@@ -529,7 +542,7 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/deletePass',
-            io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -556,8 +569,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/listPassesByPassProject',
-            io_dot_raw_dot_pass__pb2.ListPassesByPassProjectRequest.SerializeToString,
-            io_dot_raw_dot_pass__pb2.Pass.FromString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.ListPassesByPassProjectRequest.SerializeToString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
             options,
             channel_credentials,
             insecure,
@@ -583,8 +596,8 @@ class Raw(object):
             request,
             target,
             '/raw.Raw/listPassesByPassTemplate',
-            io_dot_raw_dot_pass__pb2.ListPassesByPassTemplateRequest.SerializeToString,
-            io_dot_raw_dot_pass__pb2.Pass.FromString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.ListPassesByPassTemplateRequest.SerializeToString,
+            passkit_dot_io_dot_raw_dot_pass__pb2.Pass.FromString,
             options,
             channel_credentials,
             insecure,

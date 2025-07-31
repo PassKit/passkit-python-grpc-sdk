@@ -2,14 +2,15 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from ct.scheduler import scheduler_pb2 as ct_dot_scheduler_dot_scheduler__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.scheduler import scheduler_pb2 as io_dot_scheduler_dot_scheduler__pb2
+from passkit.ct.scheduler import scheduler_pb2 as passkit_dot_ct_dot_scheduler_dot_scheduler__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.scheduler import scheduler_pb2 as passkit_dot_io_dot_scheduler_dot_scheduler__pb2
 
 
 class SchedulerStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Scheduler API allows you to automate tasks within your PassKit programs. This API allows you to schedule one-time or recurring jobs that interact with other PassKit APIs.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -19,82 +20,90 @@ class SchedulerStub(object):
         """
         self.createSchedulingJob = channel.unary_unary(
                 '/scheduler.Scheduler/createSchedulingJob',
-                request_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
-                response_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
+                request_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+                response_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
                 _registered_method=True)
         self.getSchedulingJob = channel.unary_unary(
                 '/scheduler.Scheduler/getSchedulingJob',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
                 _registered_method=True)
         self.updateSchedulingJob = channel.unary_unary(
                 '/scheduler.Scheduler/updateSchedulingJob',
-                request_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
-                response_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
+                request_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+                response_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
                 _registered_method=True)
         self.patchSchedulingJob = channel.unary_unary(
                 '/scheduler.Scheduler/patchSchedulingJob',
-                request_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
-                response_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
+                request_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+                response_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
                 _registered_method=True)
         self.deleteSchedulingJob = channel.unary_unary(
                 '/scheduler.Scheduler/deleteSchedulingJob',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getSchedulingJobHistory = channel.unary_unary(
                 '/scheduler.Scheduler/getSchedulingJobHistory',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
                 _registered_method=True)
         self.listSchedulingJobHistories = channel.unary_stream(
                 '/scheduler.Scheduler/listSchedulingJobHistories',
-                request_serializer=io_dot_scheduler_dot_scheduler__pb2.ListRequest.SerializeToString,
-                response_deserializer=ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
+                request_serializer=passkit_dot_io_dot_scheduler_dot_scheduler__pb2.ListRequest.SerializeToString,
+                response_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
                 _registered_method=True)
 
 
 class SchedulerServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Scheduler API allows you to automate tasks within your PassKit programs. This API allows you to schedule one-time or recurring jobs that interact with other PassKit APIs.
+    """
 
     def createSchedulingJob(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a scheduling job. Required Fields: scheduleType, protocol, classId, jobName, scheduledTime, timezone.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getSchedulingJob(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a scheduling job by its ID. If the job has been deleted, only history logs will be returned. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateSchedulingJob(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing scheduling job. The full SchedulingJob object must be supplied. Empty/null fields will overwrite existing data. Required Fields: id, scheduleType, protocol, classId, jobName, scheduledTime, timezone.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchSchedulingJob(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Patch updates a scheduling job. Only supplied fields will be updated. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteSchedulingJob(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a scheduling job by ID. History logs remain available after deletion. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getSchedulingJobHistory(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a specific scheduling job history log by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listSchedulingJobHistories(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all history logs for a given scheduling job. Required Fields: jobId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -104,38 +113,38 @@ def add_SchedulerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createSchedulingJob': grpc.unary_unary_rpc_method_handler(
                     servicer.createSchedulingJob,
-                    request_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
-                    response_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.SerializeToString,
+                    request_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
+                    response_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.SerializeToString,
             ),
             'getSchedulingJob': grpc.unary_unary_rpc_method_handler(
                     servicer.getSchedulingJob,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
             ),
             'updateSchedulingJob': grpc.unary_unary_rpc_method_handler(
                     servicer.updateSchedulingJob,
-                    request_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
-                    response_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.SerializeToString,
+                    request_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
+                    response_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.SerializeToString,
             ),
             'patchSchedulingJob': grpc.unary_unary_rpc_method_handler(
                     servicer.patchSchedulingJob,
-                    request_deserializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
-                    response_serializer=ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.SerializeToString,
+                    request_deserializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
+                    response_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.SerializeToString,
             ),
             'deleteSchedulingJob': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteSchedulingJob,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getSchedulingJobHistory': grpc.unary_unary_rpc_method_handler(
                     servicer.getSchedulingJobHistory,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=ct_dot_scheduler_dot_scheduler__pb2.JobHistory.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.JobHistory.SerializeToString,
             ),
             'listSchedulingJobHistories': grpc.unary_stream_rpc_method_handler(
                     servicer.listSchedulingJobHistories,
-                    request_deserializer=io_dot_scheduler_dot_scheduler__pb2.ListRequest.FromString,
-                    response_serializer=ct_dot_scheduler_dot_scheduler__pb2.JobHistory.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_scheduler_dot_scheduler__pb2.ListRequest.FromString,
+                    response_serializer=passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.JobHistory.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -146,7 +155,8 @@ def add_SchedulerServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Scheduler(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Scheduler API allows you to automate tasks within your PassKit programs. This API allows you to schedule one-time or recurring jobs that interact with other PassKit APIs.
+    """
 
     @staticmethod
     def createSchedulingJob(request,
@@ -163,8 +173,8 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/createSchedulingJob',
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -190,8 +200,8 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/getSchedulingJob',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.FromString,
             options,
             channel_credentials,
             insecure,
@@ -217,8 +227,8 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/updateSchedulingJob',
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -244,8 +254,8 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/patchSchedulingJob',
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
-            ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJob.SerializeToString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.SchedulingJobResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -271,7 +281,7 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/deleteSchedulingJob',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -298,8 +308,8 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/getSchedulingJobHistory',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
             options,
             channel_credentials,
             insecure,
@@ -325,8 +335,8 @@ class Scheduler(object):
             request,
             target,
             '/scheduler.Scheduler/listSchedulingJobHistories',
-            io_dot_scheduler_dot_scheduler__pb2.ListRequest.SerializeToString,
-            ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
+            passkit_dot_io_dot_scheduler_dot_scheduler__pb2.ListRequest.SerializeToString,
+            passkit_dot_ct_dot_scheduler_dot_scheduler__pb2.JobHistory.FromString,
             options,
             channel_credentials,
             insecure,

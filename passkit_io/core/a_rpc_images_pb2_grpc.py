@@ -3,14 +3,15 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import filter_pb2 as io_dot_common_dot_filter__pb2
-from passkit_io.common import pagination_pb2 as io_dot_common_dot_pagination__pb2
-from passkit_io.image import image_pb2 as io_dot_image_dot_image__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
+from passkit.io.common import pagination_pb2 as passkit_dot_io_dot_common_dot_pagination__pb2
+from passkit.io.image import image_pb2 as passkit_dot_io_dot_image_dot_image__pb2
 
 
 class ImagesStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Images API lets you manage your image assets for Apple Wallet, Google Wallet and the data collection pages.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -20,259 +21,282 @@ class ImagesStub(object):
         """
         self.setProfileImage = channel.unary_unary(
                 '/io.Images/setProfileImage',
-                request_serializer=io_dot_image_dot_image__pb2.ProfileImageInput.SerializeToString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.ProfileImageInput.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getProfileImage = channel.unary_unary(
                 '/io.Images/getProfileImage',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.createImages = channel.unary_unary(
                 '/io.Images/createImages',
-                request_serializer=io_dot_image_dot_image__pb2.CreateImageInput.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageIds.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.CreateImageInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageIds.FromString,
                 _registered_method=True)
         self.updateImage = channel.unary_unary(
                 '/io.Images/updateImage',
-                request_serializer=io_dot_image_dot_image__pb2.UpdateImageInput.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.UpdateImageInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.getImageURL = channel.unary_unary(
                 '/io.Images/getImageURL',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.getStampImageURL = channel.unary_unary(
                 '/io.Images/getStampImageURL',
-                request_serializer=io_dot_image_dot_image__pb2.StampImageRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.StampImageRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.getStampImageConfig = channel.unary_unary(
                 '/io.Images/getStampImageConfig',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.StampImageConfig.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.StampImageConfig.FromString,
                 _registered_method=True)
         self.updateStampImageConfig = channel.unary_unary(
                 '/io.Images/updateStampImageConfig',
-                request_serializer=io_dot_image_dot_image__pb2.StampImageConfig.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.StampImageConfig.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.getStampImagePreview = channel.unary_unary(
                 '/io.Images/getStampImagePreview',
-                request_serializer=io_dot_image_dot_image__pb2.StampImagePreviewRequest.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.StampImagePreview.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.StampImagePreviewRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.StampImagePreview.FromString,
                 _registered_method=True)
         self.getLocalizedImageURL = channel.unary_unary(
                 '/io.Images/getLocalizedImageURL',
-                request_serializer=io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.getProfileImageById = channel.unary_unary(
                 '/io.Images/getProfileImageById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.getImageBundle = channel.unary_unary(
                 '/io.Images/getImageBundle',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageBundle.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageBundle.FromString,
                 _registered_method=True)
         self.getImageData = channel.unary_unary(
                 '/io.Images/getImageData',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.deleteImage = channel.unary_unary(
                 '/io.Images/deleteImage',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.deleteLocalizedImage = channel.unary_unary(
                 '/io.Images/deleteLocalizedImage',
-                request_serializer=io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.listImagesForUserDeprecated = channel.unary_stream(
                 '/io.Images/listImagesForUserDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.listImagesForUser = channel.unary_stream(
                 '/io.Images/listImagesForUser',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.listImagesDeprecated = channel.unary_stream(
                 '/io.Images/listImagesDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.listImages = channel.unary_stream(
                 '/io.Images/listImages',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_image_dot_image__pb2.ImageRecord.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
                 _registered_method=True)
         self.countImagesDeprecated = channel.unary_unary(
                 '/io.Images/countImagesDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countImages = channel.unary_unary(
                 '/io.Images/countImages',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countImagesForUserDeprecated = channel.unary_unary(
                 '/io.Images/countImagesForUserDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countImagesForUser = channel.unary_unary(
                 '/io.Images/countImagesForUser',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
 
 
 class ImagesServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Images API lets you manage your image assets for Apple Wallet, Google Wallet and the data collection pages.
+    """
 
     def setProfileImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Set the profile image for the logged in user. Required Fields: imageData.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProfileImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Get the profile image URL for the logged in user.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createImages(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates one or more images. Image data is provided in base64. Required Fields: name, imageData.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an image record's metadata. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getImageURL(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves an image URL by its ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getStampImageURL(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a stamp image URL with the supplied stamp status. Required Fields: id and status.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getStampImageConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the configuration of a stamp image. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateStampImageConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates a stamp image configuration. Required Fields: id and config fields.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getStampImagePreview(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Gets a preview image of the provided stamp image configuration. Required Fields: stampImageConfig and status.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getLocalizedImageURL(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a localized image URL for a specific language. Required Fields: iD and languageCode.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProfileImageById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a profile image URL by a specific ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getImageBundle(self, request, context):
-        """returns a zip bundle containing all images for that ID
+        """Retrieves an image bundle (ZIP) containing all images for the given ID. Required Fields: id.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getImageData(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves metadata for an image record. Required: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes an image record. Required: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteLocalizedImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a localized version of an image. Required Fields: id and language code.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listImagesForUserDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Retrieves all user-owned images using pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listImagesForUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all images stored under the user account using filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listImagesDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Retrieves all images available to the company.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listImages(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all images stored under the company using filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countImagesDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Returns the count of all images available to the user.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countImages(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns the count of all images available to the user using filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countImagesForUserDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Returns the count of images stored under the user's account.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countImagesForUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns the count of images stored under the user's account using filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -282,118 +306,118 @@ def add_ImagesServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'setProfileImage': grpc.unary_unary_rpc_method_handler(
                     servicer.setProfileImage,
-                    request_deserializer=io_dot_image_dot_image__pb2.ProfileImageInput.FromString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.ProfileImageInput.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getProfileImage': grpc.unary_unary_rpc_method_handler(
                     servicer.getProfileImage,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'createImages': grpc.unary_unary_rpc_method_handler(
                     servicer.createImages,
-                    request_deserializer=io_dot_image_dot_image__pb2.CreateImageInput.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageIds.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.CreateImageInput.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageIds.SerializeToString,
             ),
             'updateImage': grpc.unary_unary_rpc_method_handler(
                     servicer.updateImage,
-                    request_deserializer=io_dot_image_dot_image__pb2.UpdateImageInput.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.UpdateImageInput.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'getImageURL': grpc.unary_unary_rpc_method_handler(
                     servicer.getImageURL,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'getStampImageURL': grpc.unary_unary_rpc_method_handler(
                     servicer.getStampImageURL,
-                    request_deserializer=io_dot_image_dot_image__pb2.StampImageRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.StampImageRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'getStampImageConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.getStampImageConfig,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.StampImageConfig.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.StampImageConfig.SerializeToString,
             ),
             'updateStampImageConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.updateStampImageConfig,
-                    request_deserializer=io_dot_image_dot_image__pb2.StampImageConfig.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.StampImageConfig.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'getStampImagePreview': grpc.unary_unary_rpc_method_handler(
                     servicer.getStampImagePreview,
-                    request_deserializer=io_dot_image_dot_image__pb2.StampImagePreviewRequest.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.StampImagePreview.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.StampImagePreviewRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.StampImagePreview.SerializeToString,
             ),
             'getLocalizedImageURL': grpc.unary_unary_rpc_method_handler(
                     servicer.getLocalizedImageURL,
-                    request_deserializer=io_dot_image_dot_image__pb2.LocalizedImageInput.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.LocalizedImageInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'getProfileImageById': grpc.unary_unary_rpc_method_handler(
                     servicer.getProfileImageById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'getImageBundle': grpc.unary_unary_rpc_method_handler(
                     servicer.getImageBundle,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageBundle.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageBundle.SerializeToString,
             ),
             'getImageData': grpc.unary_unary_rpc_method_handler(
                     servicer.getImageData,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'deleteImage': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteImage,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'deleteLocalizedImage': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteLocalizedImage,
-                    request_deserializer=io_dot_image_dot_image__pb2.LocalizedImageInput.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_image_dot_image__pb2.LocalizedImageInput.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'listImagesForUserDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listImagesForUserDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'listImagesForUser': grpc.unary_stream_rpc_method_handler(
                     servicer.listImagesForUser,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'listImagesDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listImagesDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'listImages': grpc.unary_stream_rpc_method_handler(
                     servicer.listImages,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.SerializeToString,
             ),
             'countImagesDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countImagesDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countImages': grpc.unary_unary_rpc_method_handler(
                     servicer.countImages,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countImagesForUserDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countImagesForUserDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countImagesForUser': grpc.unary_unary_rpc_method_handler(
                     servicer.countImagesForUser,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -404,7 +428,8 @@ def add_ImagesServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Images(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Images API lets you manage your image assets for Apple Wallet, Google Wallet and the data collection pages.
+    """
 
     @staticmethod
     def setProfileImage(request,
@@ -421,7 +446,7 @@ class Images(object):
             request,
             target,
             '/io.Images/setProfileImage',
-            io_dot_image_dot_image__pb2.ProfileImageInput.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ProfileImageInput.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -449,7 +474,7 @@ class Images(object):
             target,
             '/io.Images/getProfileImage',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -475,8 +500,8 @@ class Images(object):
             request,
             target,
             '/io.Images/createImages',
-            io_dot_image_dot_image__pb2.CreateImageInput.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageIds.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.CreateImageInput.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageIds.FromString,
             options,
             channel_credentials,
             insecure,
@@ -502,8 +527,8 @@ class Images(object):
             request,
             target,
             '/io.Images/updateImage',
-            io_dot_image_dot_image__pb2.UpdateImageInput.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.UpdateImageInput.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -529,8 +554,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getImageURL',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -556,8 +581,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getStampImageURL',
-            io_dot_image_dot_image__pb2.StampImageRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.StampImageRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -583,8 +608,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getStampImageConfig',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_image_dot_image__pb2.StampImageConfig.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.StampImageConfig.FromString,
             options,
             channel_credentials,
             insecure,
@@ -610,8 +635,8 @@ class Images(object):
             request,
             target,
             '/io.Images/updateStampImageConfig',
-            io_dot_image_dot_image__pb2.StampImageConfig.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.StampImageConfig.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -637,8 +662,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getStampImagePreview',
-            io_dot_image_dot_image__pb2.StampImagePreviewRequest.SerializeToString,
-            io_dot_image_dot_image__pb2.StampImagePreview.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.StampImagePreviewRequest.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.StampImagePreview.FromString,
             options,
             channel_credentials,
             insecure,
@@ -664,8 +689,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getLocalizedImageURL',
-            io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -691,8 +716,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getProfileImageById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -718,8 +743,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getImageBundle',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageBundle.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageBundle.FromString,
             options,
             channel_credentials,
             insecure,
@@ -745,8 +770,8 @@ class Images(object):
             request,
             target,
             '/io.Images/getImageData',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -772,7 +797,7 @@ class Images(object):
             request,
             target,
             '/io.Images/deleteImage',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -799,8 +824,8 @@ class Images(object):
             request,
             target,
             '/io.Images/deleteLocalizedImage',
-            io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_image_dot_image__pb2.LocalizedImageInput.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -826,8 +851,8 @@ class Images(object):
             request,
             target,
             '/io.Images/listImagesForUserDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -853,8 +878,8 @@ class Images(object):
             request,
             target,
             '/io.Images/listImagesForUser',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -880,8 +905,8 @@ class Images(object):
             request,
             target,
             '/io.Images/listImagesDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -907,8 +932,8 @@ class Images(object):
             request,
             target,
             '/io.Images/listImages',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_image_dot_image__pb2.ImageRecord.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_image_dot_image__pb2.ImageRecord.FromString,
             options,
             channel_credentials,
             insecure,
@@ -934,8 +959,8 @@ class Images(object):
             request,
             target,
             '/io.Images/countImagesDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -961,8 +986,8 @@ class Images(object):
             request,
             target,
             '/io.Images/countImages',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -988,8 +1013,8 @@ class Images(object):
             request,
             target,
             '/io.Images/countImagesForUserDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1015,8 +1040,8 @@ class Images(object):
             request,
             target,
             '/io.Images/countImagesForUser',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,

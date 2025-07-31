@@ -3,12 +3,12 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import filter_pb2 as io_dot_common_dot_filter__pb2
-from passkit_io.common import integration_pb2 as io_dot_common_dot_integration__pb2
-from passkit_io.common import pagination_pb2 as io_dot_common_dot_pagination__pb2
-from passkit_io.common import project_pb2 as io_dot_common_dot_project__pb2
-from passkit_io.user import user_pb2 as io_dot_user_dot_user__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
+from passkit.io.common import integration_pb2 as passkit_dot_io_dot_common_dot_integration__pb2
+from passkit.io.common import pagination_pb2 as passkit_dot_io_dot_common_dot_pagination__pb2
+from passkit.io.common import project_pb2 as passkit_dot_io_dot_common_dot_project__pb2
+from passkit.io.user import user_pb2 as passkit_dot_io_dot_user_dot_user__pb2
 
 
 class UsersStub(object):
@@ -22,132 +22,132 @@ class UsersStub(object):
         """
         self.createUser = channel.unary_unary(
                 '/io.Users/createUser',
-                request_serializer=io_dot_user_dot_user__pb2.NewUser.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.NewUserResponse.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.NewUser.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.NewUserResponse.FromString,
                 _registered_method=True)
         self.newUser = channel.unary_unary(
                 '/io.Users/newUser',
-                request_serializer=io_dot_user_dot_user__pb2.NewUser.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.JWT.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.NewUser.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.JWT.FromString,
                 _registered_method=True)
         self.verify = channel.unary_unary(
                 '/io.Users/verify',
-                request_serializer=io_dot_user_dot_user__pb2.VerifyRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Boolean.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.VerifyRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Boolean.FromString,
                 _registered_method=True)
         self.resendVerificationEmail = channel.unary_unary(
                 '/io.Users/resendVerificationEmail',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Boolean.FromString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Boolean.FromString,
                 _registered_method=True)
         self.getUser = channel.unary_unary(
                 '/io.Users/getUser',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.GetUserResponse.FromString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.GetUserResponse.FromString,
                 _registered_method=True)
         self.login = channel.unary_unary(
                 '/io.Users/login',
-                request_serializer=io_dot_user_dot_user__pb2.Credentials.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.JWT.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.Credentials.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.JWT.FromString,
                 _registered_method=True)
         self.get2faBarcode = channel.unary_unary(
                 '/io.Users/get2faBarcode',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.resetPassword = channel.unary_unary(
                 '/io.Users/resetPassword',
-                request_serializer=io_dot_user_dot_user__pb2.Credentials.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.Credentials.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.sendPasswordResetLink = channel.unary_unary(
                 '/io.Users/sendPasswordResetLink',
-                request_serializer=io_dot_user_dot_user__pb2.Username.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.Username.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.changePassword = channel.unary_unary(
                 '/io.Users/changePassword',
-                request_serializer=io_dot_user_dot_user__pb2.PasswordResetInput.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.PasswordResetInput.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.changeEmail = channel.unary_unary(
                 '/io.Users/changeEmail',
-                request_serializer=io_dot_user_dot_user__pb2.Email.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.Email.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.confirmEmailChange = channel.unary_unary(
                 '/io.Users/confirmEmailChange',
-                request_serializer=io_dot_user_dot_user__pb2.ConfirmEmailChangeInput.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.ConfirmEmailChangeInput.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.updateCompanyName = channel.unary_unary(
                 '/io.Users/updateCompanyName',
-                request_serializer=io_dot_user_dot_user__pb2.CompanyName.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.CompanyName.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getProjectsForUserQueryDeprecated = channel.unary_stream(
                 '/io.Users/getProjectsForUserQueryDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getProjectsQueryDeprecated = channel.unary_stream(
                 '/io.Users/getProjectsQueryDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getProjectsForUserQuery = channel.unary_stream(
                 '/io.Users/getProjectsForUserQuery',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getProjectsQuery = channel.unary_stream(
                 '/io.Users/getProjectsQuery',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getProjectByUuid = channel.unary_unary(
                 '/io.Users/getProjectByUuid',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getProjectAndTemplateByShortCode = channel.unary_unary(
                 '/io.Users/getProjectAndTemplateByShortCode',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.ProjectByShortCodeResult.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.ProjectByShortCodeResult.FromString,
                 _registered_method=True)
         self.getProjectsForUser = channel.unary_stream(
                 '/io.Users/getProjectsForUser',
-                request_serializer=io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getProjects = channel.unary_stream(
                 '/io.Users/getProjects',
-                request_serializer=io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
-                response_deserializer=io_dot_common_dot_project__pb2.Project.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
                 _registered_method=True)
         self.getScannerConfig = channel.unary_unary(
                 '/io.Users/getScannerConfig',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
                 _registered_method=True)
         self.createScannerConfig = channel.unary_unary(
                 '/io.Users/createScannerConfig',
-                request_serializer=io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.updateScannerConfig = channel.unary_unary(
                 '/io.Users/updateScannerConfig',
-                request_serializer=io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
                 _registered_method=True)
         self.createAuthorizationResource = channel.unary_unary(
                 '/io.Users/createAuthorizationResource',
-                request_serializer=io_dot_user_dot_user__pb2.OAuth2AuthorizationRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.OAuth2AuthorizationRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteAuthorizationResource = channel.unary_unary(
                 '/io.Users/deleteAuthorizationResource',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.refreshApiSecret = channel.unary_unary(
@@ -157,7 +157,7 @@ class UsersStub(object):
                 _registered_method=True)
         self.deleteAccount = channel.unary_unary(
                 '/io.Users/deleteAccount',
-                request_serializer=io_dot_user_dot_user__pb2.DeleteAccountRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.DeleteAccountRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.revokeLegacyCredentials = channel.unary_unary(
@@ -167,43 +167,43 @@ class UsersStub(object):
                 _registered_method=True)
         self.createTeamMember = channel.unary_unary(
                 '/io.Users/createTeamMember',
-                request_serializer=io_dot_user_dot_user__pb2.NewTeamMember.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.NewTeamMember.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.createPermissionsForTeamMember = channel.unary_unary(
                 '/io.Users/createPermissionsForTeamMember',
-                request_serializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateTeamMemberPermissions = channel.unary_unary(
                 '/io.Users/updateTeamMemberPermissions',
-                request_serializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
                 _registered_method=True)
         self.patchTeamMemberPermissions = channel.unary_unary(
                 '/io.Users/patchTeamMemberPermissions',
-                request_serializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
                 _registered_method=True)
         self.getTeamMember = channel.unary_unary(
                 '/io.Users/getTeamMember',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.GetTeamMemberResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.GetTeamMemberResponse.FromString,
                 _registered_method=True)
         self.getTeamMembers = channel.unary_stream(
                 '/io.Users/getTeamMembers',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.ListTeamMembersResponse.FromString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ListTeamMembersResponse.FromString,
                 _registered_method=True)
         self.deleteTeamMember = channel.unary_unary(
                 '/io.Users/deleteTeamMember',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getTeamMemberLogs = channel.unary_stream(
                 '/io.Users/getTeamMemberLogs',
-                request_serializer=io_dot_user_dot_user__pb2.AuditLogRequest.SerializeToString,
-                response_deserializer=io_dot_user_dot_user__pb2.AuditLog.FromString,
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.AuditLogRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.AuditLog.FromString,
                 _registered_method=True)
 
 
@@ -211,145 +211,169 @@ class UsersServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def createUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a user and issues a verification email. Required Fields: email, password, name, companyName.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def newUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new user and returns a JWT token. Required Fields: email, password, name, companyName.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def verify(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Verifies the user with the email verification code. Required Fields: code.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def resendVerificationEmail(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Resends the verification email.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the authenticated user's profile.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def login(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Authenticates the user and returns a JWT token. Required Fields: username, password.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def get2faBarcode(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns the barcode image URL for 2FA setup.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def resetPassword(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Resets the user's password if a reset code is already obtained. Required Fields: username, password, code.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def sendPasswordResetLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Sends a password reset link to the user's email. Required Fields: username.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def changePassword(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Changes the user's password using a reset token. Required Fields: token, password.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def changeEmail(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Initiates email change. Verification email is sent to new address. Required Fields: email.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def confirmEmailChange(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Confirms and finalizes the email change. Required Fields: email, code.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateCompanyName(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates the company name associated with the account. Required Fields: name.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectsForUserQueryDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Retrieves user’s projects using pagination. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectsQueryDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Retrieves all company projects using pagination. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectsForUserQuery(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves user’s projects using filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectsQuery(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all company projects using filters. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectByUuid(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a project by its UUID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectAndTemplateByShortCode(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a project and template using short code. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjectsForUser(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves projects belonging to a user by status. Required Fields: status.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProjects(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all company projects by status. Required Fields: status.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getScannerConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the scanner configuration for the user.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createScannerConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new scanner configuration. Required Fields: ScannerConfiguration fields.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateScannerConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates the existing scanner configuration. Required Fields: ScannerConfiguration fields.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -362,74 +386,85 @@ class UsersServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def deleteAuthorizationResource(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes an OAuth2 authorization resource. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def refreshApiSecret(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Refreshes the API secret key for the current user.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteAccount(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Permanently deletes the user's account and all associated data. Required Fields: password.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def revokeLegacyCredentials(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Immediately revokes any old gRPC credentials.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createTeamMember(self, request, context):
-        """Team Members
+        """Creates a new sub-user account for the company. Required Fields: email, name, password.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createPermissionsForTeamMember(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Assigns permissions to a new team member. Required Fields: userId, permissions.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateTeamMemberPermissions(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates the entire permissions object for a team member. Required Fields: userId, permissions.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchTeamMemberPermissions(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates partial permissions for a team member. Required Fields: userId, permissions.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTeamMember(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a team member by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTeamMembers(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves all team members.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteTeamMember(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a team member. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTeamMemberLogs(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves access logs for a company or user. Required Fields: protocol, classId, userId, dateRange.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -439,132 +474,132 @@ def add_UsersServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createUser': grpc.unary_unary_rpc_method_handler(
                     servicer.createUser,
-                    request_deserializer=io_dot_user_dot_user__pb2.NewUser.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.NewUserResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.NewUser.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.NewUserResponse.SerializeToString,
             ),
             'newUser': grpc.unary_unary_rpc_method_handler(
                     servicer.newUser,
-                    request_deserializer=io_dot_user_dot_user__pb2.NewUser.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.JWT.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.NewUser.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.JWT.SerializeToString,
             ),
             'verify': grpc.unary_unary_rpc_method_handler(
                     servicer.verify,
-                    request_deserializer=io_dot_user_dot_user__pb2.VerifyRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Boolean.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.VerifyRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Boolean.SerializeToString,
             ),
             'resendVerificationEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.resendVerificationEmail,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Boolean.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Boolean.SerializeToString,
             ),
             'getUser': grpc.unary_unary_rpc_method_handler(
                     servicer.getUser,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.GetUserResponse.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.GetUserResponse.SerializeToString,
             ),
             'login': grpc.unary_unary_rpc_method_handler(
                     servicer.login,
-                    request_deserializer=io_dot_user_dot_user__pb2.Credentials.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.JWT.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.Credentials.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.JWT.SerializeToString,
             ),
             'get2faBarcode': grpc.unary_unary_rpc_method_handler(
                     servicer.get2faBarcode,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'resetPassword': grpc.unary_unary_rpc_method_handler(
                     servicer.resetPassword,
-                    request_deserializer=io_dot_user_dot_user__pb2.Credentials.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.Credentials.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'sendPasswordResetLink': grpc.unary_unary_rpc_method_handler(
                     servicer.sendPasswordResetLink,
-                    request_deserializer=io_dot_user_dot_user__pb2.Username.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.Username.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'changePassword': grpc.unary_unary_rpc_method_handler(
                     servicer.changePassword,
-                    request_deserializer=io_dot_user_dot_user__pb2.PasswordResetInput.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.PasswordResetInput.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'changeEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.changeEmail,
-                    request_deserializer=io_dot_user_dot_user__pb2.Email.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.Email.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'confirmEmailChange': grpc.unary_unary_rpc_method_handler(
                     servicer.confirmEmailChange,
-                    request_deserializer=io_dot_user_dot_user__pb2.ConfirmEmailChangeInput.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ConfirmEmailChangeInput.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'updateCompanyName': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCompanyName,
-                    request_deserializer=io_dot_user_dot_user__pb2.CompanyName.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.CompanyName.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getProjectsForUserQueryDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.getProjectsForUserQueryDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getProjectsQueryDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.getProjectsQueryDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getProjectsForUserQuery': grpc.unary_stream_rpc_method_handler(
                     servicer.getProjectsForUserQuery,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getProjectsQuery': grpc.unary_stream_rpc_method_handler(
                     servicer.getProjectsQuery,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getProjectByUuid': grpc.unary_unary_rpc_method_handler(
                     servicer.getProjectByUuid,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getProjectAndTemplateByShortCode': grpc.unary_unary_rpc_method_handler(
                     servicer.getProjectAndTemplateByShortCode,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.ProjectByShortCodeResult.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.ProjectByShortCodeResult.SerializeToString,
             ),
             'getProjectsForUser': grpc.unary_stream_rpc_method_handler(
                     servicer.getProjectsForUser,
-                    request_deserializer=io_dot_common_dot_project__pb2.ProjectStatusFilter.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_project__pb2.ProjectStatusFilter.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getProjects': grpc.unary_stream_rpc_method_handler(
                     servicer.getProjects,
-                    request_deserializer=io_dot_common_dot_project__pb2.ProjectStatusFilter.FromString,
-                    response_serializer=io_dot_common_dot_project__pb2.Project.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_project__pb2.ProjectStatusFilter.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_project__pb2.Project.SerializeToString,
             ),
             'getScannerConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.getScannerConfig,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
             ),
             'createScannerConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.createScannerConfig,
-                    request_deserializer=io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'updateScannerConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.updateScannerConfig,
-                    request_deserializer=io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
             ),
             'createAuthorizationResource': grpc.unary_unary_rpc_method_handler(
                     servicer.createAuthorizationResource,
-                    request_deserializer=io_dot_user_dot_user__pb2.OAuth2AuthorizationRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.OAuth2AuthorizationRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteAuthorizationResource': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteAuthorizationResource,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'refreshApiSecret': grpc.unary_unary_rpc_method_handler(
@@ -574,7 +609,7 @@ def add_UsersServicer_to_server(servicer, server):
             ),
             'deleteAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteAccount,
-                    request_deserializer=io_dot_user_dot_user__pb2.DeleteAccountRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.DeleteAccountRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'revokeLegacyCredentials': grpc.unary_unary_rpc_method_handler(
@@ -584,43 +619,43 @@ def add_UsersServicer_to_server(servicer, server):
             ),
             'createTeamMember': grpc.unary_unary_rpc_method_handler(
                     servicer.createTeamMember,
-                    request_deserializer=io_dot_user_dot_user__pb2.NewTeamMember.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.NewTeamMember.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'createPermissionsForTeamMember': grpc.unary_unary_rpc_method_handler(
                     servicer.createPermissionsForTeamMember,
-                    request_deserializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateTeamMemberPermissions': grpc.unary_unary_rpc_method_handler(
                     servicer.updateTeamMemberPermissions,
-                    request_deserializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
             ),
             'patchTeamMemberPermissions': grpc.unary_unary_rpc_method_handler(
                     servicer.patchTeamMemberPermissions,
-                    request_deserializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
             ),
             'getTeamMember': grpc.unary_unary_rpc_method_handler(
                     servicer.getTeamMember,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.GetTeamMemberResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.GetTeamMemberResponse.SerializeToString,
             ),
             'getTeamMembers': grpc.unary_stream_rpc_method_handler(
                     servicer.getTeamMembers,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.ListTeamMembersResponse.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.ListTeamMembersResponse.SerializeToString,
             ),
             'deleteTeamMember': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteTeamMember,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getTeamMemberLogs': grpc.unary_stream_rpc_method_handler(
                     servicer.getTeamMemberLogs,
-                    request_deserializer=io_dot_user_dot_user__pb2.AuditLogRequest.FromString,
-                    response_serializer=io_dot_user_dot_user__pb2.AuditLog.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.AuditLogRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.AuditLog.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -648,8 +683,8 @@ class Users(object):
             request,
             target,
             '/io.Users/createUser',
-            io_dot_user_dot_user__pb2.NewUser.SerializeToString,
-            io_dot_user_dot_user__pb2.NewUserResponse.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.NewUser.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.NewUserResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -675,8 +710,8 @@ class Users(object):
             request,
             target,
             '/io.Users/newUser',
-            io_dot_user_dot_user__pb2.NewUser.SerializeToString,
-            io_dot_user_dot_user__pb2.JWT.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.NewUser.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.JWT.FromString,
             options,
             channel_credentials,
             insecure,
@@ -702,8 +737,8 @@ class Users(object):
             request,
             target,
             '/io.Users/verify',
-            io_dot_user_dot_user__pb2.VerifyRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Boolean.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.VerifyRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Boolean.FromString,
             options,
             channel_credentials,
             insecure,
@@ -730,7 +765,7 @@ class Users(object):
             target,
             '/io.Users/resendVerificationEmail',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Boolean.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Boolean.FromString,
             options,
             channel_credentials,
             insecure,
@@ -757,7 +792,7 @@ class Users(object):
             target,
             '/io.Users/getUser',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_user_dot_user__pb2.GetUserResponse.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.GetUserResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -783,8 +818,8 @@ class Users(object):
             request,
             target,
             '/io.Users/login',
-            io_dot_user_dot_user__pb2.Credentials.SerializeToString,
-            io_dot_user_dot_user__pb2.JWT.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.Credentials.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.JWT.FromString,
             options,
             channel_credentials,
             insecure,
@@ -811,7 +846,7 @@ class Users(object):
             target,
             '/io.Users/get2faBarcode',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -837,7 +872,7 @@ class Users(object):
             request,
             target,
             '/io.Users/resetPassword',
-            io_dot_user_dot_user__pb2.Credentials.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.Credentials.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -864,7 +899,7 @@ class Users(object):
             request,
             target,
             '/io.Users/sendPasswordResetLink',
-            io_dot_user_dot_user__pb2.Username.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.Username.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -891,7 +926,7 @@ class Users(object):
             request,
             target,
             '/io.Users/changePassword',
-            io_dot_user_dot_user__pb2.PasswordResetInput.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.PasswordResetInput.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -918,7 +953,7 @@ class Users(object):
             request,
             target,
             '/io.Users/changeEmail',
-            io_dot_user_dot_user__pb2.Email.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.Email.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -945,7 +980,7 @@ class Users(object):
             request,
             target,
             '/io.Users/confirmEmailChange',
-            io_dot_user_dot_user__pb2.ConfirmEmailChangeInput.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.ConfirmEmailChangeInput.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -972,7 +1007,7 @@ class Users(object):
             request,
             target,
             '/io.Users/updateCompanyName',
-            io_dot_user_dot_user__pb2.CompanyName.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.CompanyName.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -999,8 +1034,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectsForUserQueryDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1026,8 +1061,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectsQueryDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1053,8 +1088,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectsForUserQuery',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1080,8 +1115,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectsQuery',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1107,8 +1142,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectByUuid',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1134,8 +1169,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectAndTemplateByShortCode',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_project__pb2.ProjectByShortCodeResult.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.ProjectByShortCodeResult.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1161,8 +1196,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjectsForUser',
-            io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1188,8 +1223,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getProjects',
-            io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
-            io_dot_common_dot_project__pb2.Project.FromString,
+            passkit_dot_io_dot_common_dot_project__pb2.ProjectStatusFilter.SerializeToString,
+            passkit_dot_io_dot_common_dot_project__pb2.Project.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1216,7 +1251,7 @@ class Users(object):
             target,
             '/io.Users/getScannerConfig',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1242,7 +1277,7 @@ class Users(object):
             request,
             target,
             '/io.Users/createScannerConfig',
-            io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1269,8 +1304,8 @@ class Users(object):
             request,
             target,
             '/io.Users/updateScannerConfig',
-            io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
-            io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.ScannerConfiguration.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1296,8 +1331,8 @@ class Users(object):
             request,
             target,
             '/io.Users/createAuthorizationResource',
-            io_dot_user_dot_user__pb2.OAuth2AuthorizationRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.OAuth2AuthorizationRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1323,7 +1358,7 @@ class Users(object):
             request,
             target,
             '/io.Users/deleteAuthorizationResource',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1377,7 +1412,7 @@ class Users(object):
             request,
             target,
             '/io.Users/deleteAccount',
-            io_dot_user_dot_user__pb2.DeleteAccountRequest.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.DeleteAccountRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1431,8 +1466,8 @@ class Users(object):
             request,
             target,
             '/io.Users/createTeamMember',
-            io_dot_user_dot_user__pb2.NewTeamMember.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.NewTeamMember.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1458,8 +1493,8 @@ class Users(object):
             request,
             target,
             '/io.Users/createPermissionsForTeamMember',
-            io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1485,8 +1520,8 @@ class Users(object):
             request,
             target,
             '/io.Users/updateTeamMemberPermissions',
-            io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
-            io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1512,8 +1547,8 @@ class Users(object):
             request,
             target,
             '/io.Users/patchTeamMemberPermissions',
-            io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
-            io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.TeamMemberPermissions.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1539,8 +1574,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getTeamMember',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_user_dot_user__pb2.GetTeamMemberResponse.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.GetTeamMemberResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1567,7 +1602,7 @@ class Users(object):
             target,
             '/io.Users/getTeamMembers',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_user_dot_user__pb2.ListTeamMembersResponse.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.ListTeamMembersResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1593,7 +1628,7 @@ class Users(object):
             request,
             target,
             '/io.Users/deleteTeamMember',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1620,8 +1655,8 @@ class Users(object):
             request,
             target,
             '/io.Users/getTeamMemberLogs',
-            io_dot_user_dot_user__pb2.AuditLogRequest.SerializeToString,
-            io_dot_user_dot_user__pb2.AuditLog.FromString,
+            passkit_dot_io_dot_user_dot_user__pb2.AuditLogRequest.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.AuditLog.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1644,63 +1679,63 @@ class IntegrationsStub(object):
         """
         self.createIntegrations = channel.unary_unary(
                 '/io.Integrations/createIntegrations',
-                request_serializer=io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.getIntegrations = channel.unary_unary(
                 '/io.Integrations/getIntegrations',
-                request_serializer=io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
                 _registered_method=True)
         self.updateIntegrations = channel.unary_unary(
                 '/io.Integrations/updateIntegrations',
-                request_serializer=io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteIntegrations = channel.unary_unary(
                 '/io.Integrations/deleteIntegrations',
-                request_serializer=io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.createSinkSubscription = channel.unary_unary(
                 '/io.Integrations/createSinkSubscription',
-                request_serializer=io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.getSinkSubscription = channel.unary_unary(
                 '/io.Integrations/getSinkSubscription',
-                request_serializer=io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
                 _registered_method=True)
         self.listSinkSubscriptionsDeprecated = channel.unary_stream(
                 '/io.Integrations/listSinkSubscriptionsDeprecated',
-                request_serializer=io_dot_common_dot_common__objects__pb2.ListRequestDeprecated.SerializeToString,
-                response_deserializer=io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.ListRequestDeprecated.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
                 _registered_method=True)
         self.listSinkSubscriptions = channel.unary_stream(
                 '/io.Integrations/listSinkSubscriptions',
-                request_serializer=io_dot_common_dot_common__objects__pb2.ListRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.ListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
                 _registered_method=True)
         self.updateSinkSubscription = channel.unary_unary(
                 '/io.Integrations/updateSinkSubscription',
-                request_serializer=io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.deleteSinkSubscription = channel.unary_unary(
                 '/io.Integrations/deleteSinkSubscription',
-                request_serializer=io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getSampleSubscriptionEvent = channel.unary_unary(
                 '/io.Integrations/getSampleSubscriptionEvent',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
                 _registered_method=True)
         self.callDynamicApi = channel.unary_unary(
                 '/io.Integrations/callDynamicApi',
-                request_serializer=io_dot_common_dot_integration__pb2.DynamicApiInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_integration__pb2.DynamicApiResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_integration__pb2.DynamicApiInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.DynamicApiResponse.FromString,
                 _registered_method=True)
 
 
@@ -1708,73 +1743,85 @@ class IntegrationsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def createIntegrations(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates integration configurations for a pass type. Required Fields: protocol, classId, integrations.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getIntegrations(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves integration configurations for a protocol and class. Required Fields: protocol, classId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateIntegrations(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates integration configurations for a pass type. Required Fields: protocol, classId, integrations.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteIntegrations(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes integration configurations for a protocol and class. Required Fields: protocol, classId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createSinkSubscription(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a sink subscription to receive webhook callbacks after specific events. Required Fields: protocol, classId, event, url.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getSinkSubscription(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a sink subscription configuration. Required Fields: protocol, subscriptionId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listSinkSubscriptionsDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Lists sink subscriptions by segment with optional pagination. Required Fields: pagination.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listSinkSubscriptions(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all sink subscriptions by segment with optional pagination. Required Fields: filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateSinkSubscription(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates a sink subscription configuration. Required Fields: protocol, classId, event, url.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteSinkSubscription(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a sink subscription configuration. Required Fields: protocol, subscriptionId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getSampleSubscriptionEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns a sample sink subscription payload. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def callDynamicApi(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Dynamically calls an external API using configured credentials. Required Fields: url, method, headers, body (depending on the API).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -1784,63 +1831,63 @@ def add_IntegrationsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createIntegrations': grpc.unary_unary_rpc_method_handler(
                     servicer.createIntegrations,
-                    request_deserializer=io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'getIntegrations': grpc.unary_unary_rpc_method_handler(
                     servicer.getIntegrations,
-                    request_deserializer=io_dot_common_dot_integration__pb2.ProtocolIdInput.FromString,
-                    response_serializer=io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.ProtocolIdInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
             ),
             'updateIntegrations': grpc.unary_unary_rpc_method_handler(
                     servicer.updateIntegrations,
-                    request_deserializer=io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteIntegrations': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteIntegrations,
-                    request_deserializer=io_dot_common_dot_integration__pb2.ProtocolIdInput.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.ProtocolIdInput.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'createSinkSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.createSinkSubscription,
-                    request_deserializer=io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'getSinkSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.getSinkSubscription,
-                    request_deserializer=io_dot_common_dot_integration__pb2.SubscriptionRequest.FromString,
-                    response_serializer=io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SubscriptionRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
             ),
             'listSinkSubscriptionsDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listSinkSubscriptionsDeprecated,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.ListRequestDeprecated.FromString,
-                    response_serializer=io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.ListRequestDeprecated.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
             ),
             'listSinkSubscriptions': grpc.unary_stream_rpc_method_handler(
                     servicer.listSinkSubscriptions,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.ListRequest.FromString,
-                    response_serializer=io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.ListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
             ),
             'updateSinkSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.updateSinkSubscription,
-                    request_deserializer=io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'deleteSinkSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteSinkSubscription,
-                    request_deserializer=io_dot_common_dot_integration__pb2.SubscriptionRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.SubscriptionRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getSampleSubscriptionEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.getSampleSubscriptionEvent,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
             ),
             'callDynamicApi': grpc.unary_unary_rpc_method_handler(
                     servicer.callDynamicApi,
-                    request_deserializer=io_dot_common_dot_integration__pb2.DynamicApiInput.FromString,
-                    response_serializer=io_dot_common_dot_integration__pb2.DynamicApiResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_integration__pb2.DynamicApiInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_integration__pb2.DynamicApiResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1868,8 +1915,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/createIntegrations',
-            io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1895,8 +1942,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/getIntegrations',
-            io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
-            io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1922,8 +1969,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/updateIntegrations',
-            io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.IntegrationConfigs.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1949,7 +1996,7 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/deleteIntegrations',
-            io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.ProtocolIdInput.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1976,8 +2023,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/createSinkSubscription',
-            io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2003,8 +2050,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/getSinkSubscription',
-            io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
-            io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2030,8 +2077,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/listSinkSubscriptionsDeprecated',
-            io_dot_common_dot_common__objects__pb2.ListRequestDeprecated.SerializeToString,
-            io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.ListRequestDeprecated.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2057,8 +2104,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/listSinkSubscriptions',
-            io_dot_common_dot_common__objects__pb2.ListRequest.SerializeToString,
-            io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.ListRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2084,8 +2131,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/updateSinkSubscription',
-            io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2111,7 +2158,7 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/deleteSinkSubscription',
-            io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SubscriptionRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -2138,8 +2185,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/getSampleSubscriptionEvent',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.SinkSubscription.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2165,8 +2212,8 @@ class Integrations(object):
             request,
             target,
             '/io.Integrations/callDynamicApi',
-            io_dot_common_dot_integration__pb2.DynamicApiInput.SerializeToString,
-            io_dot_common_dot_integration__pb2.DynamicApiResponse.FromString,
+            passkit_dot_io_dot_common_dot_integration__pb2.DynamicApiInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_integration__pb2.DynamicApiResponse.FromString,
             options,
             channel_credentials,
             insecure,

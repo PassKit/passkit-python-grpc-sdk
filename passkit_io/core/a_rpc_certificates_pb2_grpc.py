@@ -3,14 +3,15 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.certificate import certificate_pb2 as io_dot_certificate_dot_certificate__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import filter_pb2 as io_dot_common_dot_filter__pb2
-from passkit_io.common import pagination_pb2 as io_dot_common_dot_pagination__pb2
+from passkit.io.certificate import certificate_pb2 as passkit_dot_io_dot_certificate_dot_certificate__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
+from passkit.io.common import pagination_pb2 as passkit_dot_io_dot_common_dot_pagination__pb2
 
 
 class CertificatesStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Manage your Apple Wallet Pass Type Identifiers & Certificates
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -20,104 +21,114 @@ class CertificatesStub(object):
         """
         self.getAppleCertificateData = channel.unary_unary(
                 '/io.Certificates/getAppleCertificateData',
-                request_serializer=io_dot_certificate_dot_certificate__pb2.PassTypeIdentifier.SerializeToString,
-                response_deserializer=io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.PassTypeIdentifier.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
                 _registered_method=True)
         self.getCertificateSigningRequest = channel.unary_unary(
                 '/io.Certificates/getCertificateSigningRequest',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=io_dot_certificate_dot_certificate__pb2.CertificateSigningRequest.FromString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateSigningRequest.FromString,
                 _registered_method=True)
         self.addAppleCertificate = channel.unary_unary(
                 '/io.Certificates/addAppleCertificate',
-                request_serializer=io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
-                response_deserializer=io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
                 _registered_method=True)
         self.updateAppleCertificate = channel.unary_unary(
                 '/io.Certificates/updateAppleCertificate',
-                request_serializer=io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
-                response_deserializer=io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
                 _registered_method=True)
         self.listAppleCertificatesDeprecated = channel.unary_stream(
                 '/io.Certificates/listAppleCertificatesDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
                 _registered_method=True)
         self.listAppleCertificates = channel.unary_stream(
                 '/io.Certificates/listAppleCertificates',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
                 _registered_method=True)
         self.countAppleCertificatesDeprecated = channel.unary_unary(
                 '/io.Certificates/countAppleCertificatesDeprecated',
-                request_serializer=io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.countAppleCertificates = channel.unary_unary(
                 '/io.Certificates/countAppleCertificates',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
         self.sendNFCSigningCredentials = channel.unary_unary(
                 '/io.Certificates/sendNFCSigningCredentials',
-                request_serializer=io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
 
 
 class CertificatesServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Manage your Apple Wallet Pass Type Identifiers & Certificates
+    """
 
     def getAppleCertificateData(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the Apple pass certificate data for the provided Pass Type Identifier. Required Fields: passTypeId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getCertificateSigningRequest(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Certificate Signing Request (CSR) for the logged-in user. This is used to generate a new certificate on the Apple Developer portal.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def addAppleCertificate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Uploads a new Apple certificate for use with Wallet passes. Required Field: fileBytes.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateAppleCertificate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates or renews an existing Apple certificate by uploading a new one. Required Fields: fileBytes.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listAppleCertificatesDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Returns a paginated list of Apple pass certificates for the current user. Required Fields: pagination fields.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listAppleCertificates(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns a filtered list of Apple pass certificates for the current user. Required Fields: Filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countAppleCertificatesDeprecated(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """[DEPRECATED] Returns the count of Apple certificates for the current user based on pagination criteria. Required fields: pagination fields.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countAppleCertificates(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns the count of Apple certificates for the current user using filter criteria. Required Fields: Filters (can be empty, but must be present)
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def sendNFCSigningCredentials(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Sends NFC signing credentials for an NFC-enabled Apple certificate to the user's registered email address. Required Fields: certificateId, user email must be associated with the cert.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -127,47 +138,47 @@ def add_CertificatesServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'getAppleCertificateData': grpc.unary_unary_rpc_method_handler(
                     servicer.getAppleCertificateData,
-                    request_deserializer=io_dot_certificate_dot_certificate__pb2.PassTypeIdentifier.FromString,
-                    response_serializer=io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.PassTypeIdentifier.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
             ),
             'getCertificateSigningRequest': grpc.unary_unary_rpc_method_handler(
                     servicer.getCertificateSigningRequest,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=io_dot_certificate_dot_certificate__pb2.CertificateSigningRequest.SerializeToString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateSigningRequest.SerializeToString,
             ),
             'addAppleCertificate': grpc.unary_unary_rpc_method_handler(
                     servicer.addAppleCertificate,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.FileBytes.FromString,
-                    response_serializer=io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.FileBytes.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
             ),
             'updateAppleCertificate': grpc.unary_unary_rpc_method_handler(
                     servicer.updateAppleCertificate,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.FileBytes.FromString,
-                    response_serializer=io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.FileBytes.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
             ),
             'listAppleCertificatesDeprecated': grpc.unary_stream_rpc_method_handler(
                     servicer.listAppleCertificatesDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
             ),
             'listAppleCertificates': grpc.unary_stream_rpc_method_handler(
                     servicer.listAppleCertificates,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.SerializeToString,
             ),
             'countAppleCertificatesDeprecated': grpc.unary_unary_rpc_method_handler(
                     servicer.countAppleCertificatesDeprecated,
-                    request_deserializer=io_dot_common_dot_pagination__pb2.Pagination.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'countAppleCertificates': grpc.unary_unary_rpc_method_handler(
                     servicer.countAppleCertificates,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
             'sendNFCSigningCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.sendNFCSigningCredentials,
-                    request_deserializer=io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
@@ -179,7 +190,8 @@ def add_CertificatesServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Certificates(object):
-    """Missing associated documentation comment in .proto file."""
+    """Manage your Apple Wallet Pass Type Identifiers & Certificates
+    """
 
     @staticmethod
     def getAppleCertificateData(request,
@@ -196,8 +208,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/getAppleCertificateData',
-            io_dot_certificate_dot_certificate__pb2.PassTypeIdentifier.SerializeToString,
-            io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.PassTypeIdentifier.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -224,7 +236,7 @@ class Certificates(object):
             target,
             '/io.Certificates/getCertificateSigningRequest',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            io_dot_certificate_dot_certificate__pb2.CertificateSigningRequest.FromString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateSigningRequest.FromString,
             options,
             channel_credentials,
             insecure,
@@ -250,8 +262,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/addAppleCertificate',
-            io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
-            io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -277,8 +289,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/updateAppleCertificate',
-            io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
-            io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.FileBytes.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -304,8 +316,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/listAppleCertificatesDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -331,8 +343,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/listAppleCertificates',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CertificateData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -358,8 +370,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/countAppleCertificatesDeprecated',
-            io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_pagination__pb2.Pagination.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -385,8 +397,8 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/countAppleCertificates',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,
@@ -412,7 +424,7 @@ class Certificates(object):
             request,
             target,
             '/io.Certificates/sendNFCSigningCredentials',
-            io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,

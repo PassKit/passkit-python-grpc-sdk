@@ -3,18 +3,19 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import filter_pb2 as io_dot_common_dot_filter__pb2
-from passkit_io.common import reporting_pb2 as io_dot_common_dot_reporting__pb2
-from passkit_io.event_tickets import event_pb2 as io_dot_event__tickets_dot_event__pb2
-from passkit_io.event_tickets import production_pb2 as io_dot_event__tickets_dot_production__pb2
-from passkit_io.event_tickets import ticket_pb2 as io_dot_event__tickets_dot_ticket__pb2
-from passkit_io.event_tickets import ticket_type_pb2 as io_dot_event__tickets_dot_ticket__type__pb2
-from passkit_io.event_tickets import venue_pb2 as io_dot_event__tickets_dot_venue__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
+from passkit.io.common import reporting_pb2 as passkit_dot_io_dot_common_dot_reporting__pb2
+from passkit.io.event_tickets import event_pb2 as passkit_dot_io_dot_event__tickets_dot_event__pb2
+from passkit.io.event_tickets import production_pb2 as passkit_dot_io_dot_event__tickets_dot_production__pb2
+from passkit.io.event_tickets import ticket_pb2 as passkit_dot_io_dot_event__tickets_dot_ticket__pb2
+from passkit.io.event_tickets import ticket_type_pb2 as passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2
+from passkit.io.event_tickets import venue_pb2 as passkit_dot_io_dot_event__tickets_dot_venue__pb2
 
 
 class EventTicketsStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Event Tickets API allows you to create, manage, and distribute digital tickets for events, including productions, venues, ticket types, and individual tickets. Seamlessly issue and validate Apple Wallet and Google Wallet passes, automate event flows, and track redemptions in real time.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -24,478 +25,534 @@ class EventTicketsStub(object):
         """
         self.createProduction = channel.unary_unary(
                 '/event_tickets.EventTickets/createProduction',
-                request_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.patchProduction = channel.unary_unary(
                 '/event_tickets.EventTickets/patchProduction',
-                request_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
                 _registered_method=True)
         self.updateProduction = channel.unary_unary(
                 '/event_tickets.EventTickets/updateProduction',
-                request_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
                 _registered_method=True)
         self.getProduction = channel.unary_unary(
                 '/event_tickets.EventTickets/getProduction',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
                 _registered_method=True)
         self.deleteProduction = channel.unary_unary(
                 '/event_tickets.EventTickets/deleteProduction',
-                request_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listProductions = channel.unary_stream(
                 '/event_tickets.EventTickets/listProductions',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
                 _registered_method=True)
         self.getAnalytics = channel.unary_unary(
                 '/event_tickets.EventTickets/getAnalytics',
-                request_serializer=io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_production__pb2.ProductionAnalyticsResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.ProductionAnalyticsResponse.FromString,
                 _registered_method=True)
         self.copyProduction = channel.unary_unary(
                 '/event_tickets.EventTickets/copyProduction',
-                request_serializer=io_dot_event__tickets_dot_production__pb2.ProductionCopyRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.ProductionCopyRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.createVenue = channel.unary_unary(
                 '/event_tickets.EventTickets/createVenue',
-                request_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateVenue = channel.unary_unary(
                 '/event_tickets.EventTickets/updateVenue',
-                request_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
                 _registered_method=True)
         self.patchVenue = channel.unary_unary(
                 '/event_tickets.EventTickets/patchVenue',
-                request_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
                 _registered_method=True)
         self.getVenueById = channel.unary_unary(
                 '/event_tickets.EventTickets/getVenueById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
                 _registered_method=True)
         self.deleteVenue = channel.unary_unary(
                 '/event_tickets.EventTickets/deleteVenue',
-                request_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listVenues = channel.unary_stream(
                 '/event_tickets.EventTickets/listVenues',
-                request_serializer=io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
                 _registered_method=True)
         self.createEvent = channel.unary_unary(
                 '/event_tickets.EventTickets/createEvent',
-                request_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateEvent = channel.unary_unary(
                 '/event_tickets.EventTickets/updateEvent',
-                request_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
                 _registered_method=True)
         self.patchEvent = channel.unary_unary(
                 '/event_tickets.EventTickets/patchEvent',
-                request_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
                 _registered_method=True)
         self.getEventById = channel.unary_unary(
                 '/event_tickets.EventTickets/getEventById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
                 _registered_method=True)
         self.getEventByStartDateAndVenue = channel.unary_unary(
                 '/event_tickets.EventTickets/getEventByStartDateAndVenue',
-                request_serializer=io_dot_event__tickets_dot_event__pb2.GetEventRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.GetEventRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
                 _registered_method=True)
         self.deleteEvent = channel.unary_unary(
                 '/event_tickets.EventTickets/deleteEvent',
-                request_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listEvents = channel.unary_stream(
                 '/event_tickets.EventTickets/listEvents',
-                request_serializer=io_dot_event__tickets_dot_event__pb2.EventListRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_event__pb2.EventListResponse.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.EventListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.EventListResponse.FromString,
                 _registered_method=True)
         self.createTicketType = channel.unary_unary(
                 '/event_tickets.EventTickets/createTicketType',
-                request_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateTicketType = channel.unary_unary(
                 '/event_tickets.EventTickets/updateTicketType',
-                request_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
                 _registered_method=True)
         self.patchTicketType = channel.unary_unary(
                 '/event_tickets.EventTickets/patchTicketType',
-                request_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
                 _registered_method=True)
         self.getTicketTypeById = channel.unary_unary(
                 '/event_tickets.EventTickets/getTicketTypeById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
                 _registered_method=True)
         self.getTicketTypeByUserDefinedId = channel.unary_unary(
                 '/event_tickets.EventTickets/getTicketTypeByUserDefinedId',
-                request_serializer=io_dot_event__tickets_dot_ticket__type__pb2.GetByUidRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.GetByUidRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
                 _registered_method=True)
         self.deleteTicketType = channel.unary_unary(
                 '/event_tickets.EventTickets/deleteTicketType',
-                request_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listTicketTypes = channel.unary_stream(
                 '/event_tickets.EventTickets/listTicketTypes',
-                request_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketTypeListRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketTypeListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
                 _registered_method=True)
         self.issueTicket = channel.unary_unary(
                 '/event_tickets.EventTickets/issueTicket',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.IssueTicketRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.IssueTicketRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.issueTicketById = channel.unary_unary(
                 '/event_tickets.EventTickets/issueTicketById',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__pb2.IssueTicketResponseIds.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.IssueTicketResponseIds.FromString,
                 _registered_method=True)
         self.updateTicket = channel.unary_unary(
                 '/event_tickets.EventTickets/updateTicket',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.patchPerson = channel.unary_unary(
                 '/event_tickets.EventTickets/patchPerson',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.EventTicketPerson.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.EventTicketPerson.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.validateTicket = channel.unary_unary(
                 '/event_tickets.EventTickets/validateTicket',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.ValidateTicketRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__pb2.ValidateTicketResponse.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.ValidateTicketRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.ValidateTicketResponse.FromString,
                 _registered_method=True)
         self.redeemTicket = channel.unary_unary(
                 '/event_tickets.EventTickets/redeemTicket',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.RedeemTicketRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.RedeemTicketRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.redeemTicketsByOrderNumber = channel.unary_unary(
                 '/event_tickets.EventTickets/redeemTicketsByOrderNumber',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.RedeemByOrderNumber.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Ids.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.RedeemByOrderNumber.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Ids.FromString,
                 _registered_method=True)
         self.getTicketById = channel.unary_unary(
                 '/event_tickets.EventTickets/getTicketById',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
                 _registered_method=True)
         self.getTicketByTicketNumber = channel.unary_unary(
                 '/event_tickets.EventTickets/getTicketByTicketNumber',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.TicketNumberRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketNumberRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
                 _registered_method=True)
         self.getTicketsByOrderNumber = channel.unary_unary(
                 '/event_tickets.EventTickets/getTicketsByOrderNumber',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__pb2.Tickets.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Tickets.FromString,
                 _registered_method=True)
         self.getEventTicketPass = channel.unary_unary(
                 '/event_tickets.EventTickets/getEventTicketPass',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.EventTicketPassRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.PassBundles.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.EventTicketPassRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.PassBundles.FromString,
                 _registered_method=True)
         self.deleteTicket = channel.unary_unary(
                 '/event_tickets.EventTickets/deleteTicket',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.TicketId.SerializeToString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketId.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                _registered_method=True)
+        self.bulkDeleteTickets = channel.unary_unary(
+                '/event_tickets.EventTickets/bulkDeleteTickets',
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.BulkPassActionRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.deleteTicketsByOrderNumber = channel.unary_unary(
                 '/event_tickets.EventTickets/deleteTicketsByOrderNumber',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.listTickets = channel.unary_stream(
                 '/event_tickets.EventTickets/listTickets',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
-                response_deserializer=io_dot_event__tickets_dot_ticket__pb2.TicketLimitedFields.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketLimitedFields.FromString,
                 _registered_method=True)
         self.countTickets = channel.unary_unary(
                 '/event_tickets.EventTickets/countTickets',
-                request_serializer=io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Count.FromString,
+                request_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
 
 
 class EventTicketsServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Event Tickets API allows you to create, manage, and distribute digital tickets for events, including productions, venues, ticket types, and individual tickets. Seamlessly issue and validate Apple Wallet and Google Wallet passes, automate event flows, and track redemptions in real time.
+    """
 
     def createProduction(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new Production record. Required fields: name.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchProduction(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Partially updates an existing Production. Required fields: id and fields to update. Note: changes will update and affect all existing Events & Tickets related to this Production.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateProduction(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fully updates an existing Production. Required fields: id and all required fields are required. Note: changes will update and affect all existing Events & Tickets related to this Production.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getProduction(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Production by ID. Required fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteProduction(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a Production and all associated Events and Tickets. Required fields: id. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listProductions(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all Productions for the authenticated user. Supports filtering options to narrow down the results based on specific criteria.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getAnalytics(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves analytics for a specific Production. Required fields: classId and protocol.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def copyProduction(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a copy of an existing Production. Required fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createVenue(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new Venue record. Required fields: name and address.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateVenue(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fully updates an existing Venue. Required fields: id and all required fields are required. Note: changes will update and affect all existing Events & Tickets related to this Venue.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchVenue(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Partially updates an existing Venue. Required fields: id and fields to update. Note: changes will update and affect all existing Events & Tickets related to this Venue.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getVenueById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Venue by ID. Required fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteVenue(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a Venue and all associated Events and Tickets. Required fields: id. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listVenues(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all Venues for the authenticated user. Supports filtering options to narrow down the results based on specific criteria.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new Event for a Production. Required fields: production object and venue object.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fully updates an existing Event. Required fields: id and all required fields are required. Note: changes will update & affect all existing tickets related to this event. Production and Venue cannot be changed from this endpoint.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Partially updates an existing Event. Required fields: id and fields to update. Note: changes will update & affect all existing tickets related to this event. Production and Venue cannot be changed from this endpoint.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getEventById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves an Event by ID. Required fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getEventByStartDateAndVenue(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves an Event by start date and venue. Required fields: productionId, venueId, startDate.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes an Event and all associated Tickets. Required fields: id. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listEvents(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists Events for a Production. Required fields: productionId. Supports filtering options to narrow down the results based on specific criteria.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createTicketType(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new Ticket Type. Required fields: name, productionId and beforeRedeemPassTemplateId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateTicketType(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fully updates an existing Ticket Type. Required fields: name, productionId, beforeRedeemPassTemplateId and all required fields are required. Note: changes will update & affect all existing Tickets related to this Ticket Type.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchTicketType(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Partially updates an existing Ticket Type. Required fields: name, productionId, beforeRedeemPassTemplateId fields to update. Note: changes will update & affect all existing Tickets related to this Ticket Type.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTicketTypeById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Ticket Type by ID. Required fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTicketTypeByUserDefinedId(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Ticket Type by User Defined ID. Required fields: productionId, uid.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteTicketType(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a Ticket Type and all associated Tickets. Required fields: id, or productionId and uid. Use with caution, as this action is irreversible.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listTicketTypes(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all Ticket Types for a Production. Required fields: productionId. Supports filtering options to narrow down the results based on specific criteria.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def issueTicket(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Issues a new Ticket by PassKit IDs. Required fields: ticketTypeId, eventId, ticketNumber, person.name.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def issueTicketById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Issues a new Ticket by User Defined IDs. Required fields: productionUid, venueUid, ticketTypeUid, event.startDate and ticket.ticketNumber.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateTicket(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing Ticket. Required fields: id or (ticketNumber + productionId).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def patchPerson(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates personal information for a ticket holder. Required fields: ticketId or (ticketNumber + productionId), person.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def validateTicket(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Validates a Ticket. Required fields: id or (ticketNumber + productionId).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def redeemTicket(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Redeems a Ticket. Required fields: id or (ticketNumber + productionId).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def redeemTicketsByOrderNumber(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Redeems multiple Tickets by order number. Required fields: productionid or productionUid, and orderNumber.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTicketById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Ticket by ID. Required fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTicketByTicketNumber(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a Ticket by ticket number. Required fields: productionId and ticketNumber.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getTicketsByOrderNumber(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves Tickets by order number. Required fields: productionId and orderNumber.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getEventTicketPass(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves the digital pass bundle for a Ticket. Required fields: ticketId or (productionId + ticketNumber/orderNumber).
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteTicket(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a Ticket. Required fields: id or (ticketNumber + productionId).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def bulkDeleteTickets(self, request, context):
+        """Deletes multiple Tickets using a filter. Required fields: classId, protocol and filters.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteTicketsByOrderNumber(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes Tickets by order number. Required fields: productionId or productionUid and orderNumber.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def listTickets(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all Tickets for a Production. Required fields: productionId + ticketTypeId + eventId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def countTickets(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Counts the number of Tickets matching the filter. Required fields: productionId + ticketTypeId + eventId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -505,218 +562,223 @@ def add_EventTicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createProduction': grpc.unary_unary_rpc_method_handler(
                     servicer.createProduction,
-                    request_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'patchProduction': grpc.unary_unary_rpc_method_handler(
                     servicer.patchProduction,
-                    request_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
-                    response_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
             ),
             'updateProduction': grpc.unary_unary_rpc_method_handler(
                     servicer.updateProduction,
-                    request_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
-                    response_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
             ),
             'getProduction': grpc.unary_unary_rpc_method_handler(
                     servicer.getProduction,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
             ),
             'deleteProduction': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteProduction,
-                    request_deserializer=io_dot_event__tickets_dot_production__pb2.Production.FromString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listProductions': grpc.unary_stream_rpc_method_handler(
                     servicer.listProductions,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
             ),
             'getAnalytics': grpc.unary_unary_rpc_method_handler(
                     servicer.getAnalytics,
-                    request_deserializer=io_dot_common_dot_reporting__pb2.AnalyticsRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_production__pb2.ProductionAnalyticsResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.ProductionAnalyticsResponse.SerializeToString,
             ),
             'copyProduction': grpc.unary_unary_rpc_method_handler(
                     servicer.copyProduction,
-                    request_deserializer=io_dot_event__tickets_dot_production__pb2.ProductionCopyRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_production__pb2.ProductionCopyRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'createVenue': grpc.unary_unary_rpc_method_handler(
                     servicer.createVenue,
-                    request_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateVenue': grpc.unary_unary_rpc_method_handler(
                     servicer.updateVenue,
-                    request_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
-                    response_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
             ),
             'patchVenue': grpc.unary_unary_rpc_method_handler(
                     servicer.patchVenue,
-                    request_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
-                    response_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
             ),
             'getVenueById': grpc.unary_unary_rpc_method_handler(
                     servicer.getVenueById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
             ),
             'deleteVenue': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteVenue,
-                    request_deserializer=io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listVenues': grpc.unary_stream_rpc_method_handler(
                     servicer.listVenues,
-                    request_deserializer=io_dot_common_dot_filter__pb2.Filters.FromString,
-                    response_serializer=io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
             ),
             'createEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.createEvent,
-                    request_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.updateEvent,
-                    request_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
-                    response_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
             ),
             'patchEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.patchEvent,
-                    request_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
-                    response_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
             ),
             'getEventById': grpc.unary_unary_rpc_method_handler(
                     servicer.getEventById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
             ),
             'getEventByStartDateAndVenue': grpc.unary_unary_rpc_method_handler(
                     servicer.getEventByStartDateAndVenue,
-                    request_deserializer=io_dot_event__tickets_dot_event__pb2.GetEventRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.GetEventRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
             ),
             'deleteEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteEvent,
-                    request_deserializer=io_dot_event__tickets_dot_event__pb2.Event.FromString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listEvents': grpc.unary_stream_rpc_method_handler(
                     servicer.listEvents,
-                    request_deserializer=io_dot_event__tickets_dot_event__pb2.EventListRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_event__pb2.EventListResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.EventListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_event__pb2.EventListResponse.SerializeToString,
             ),
             'createTicketType': grpc.unary_unary_rpc_method_handler(
                     servicer.createTicketType,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateTicketType': grpc.unary_unary_rpc_method_handler(
                     servicer.updateTicketType,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
             ),
             'patchTicketType': grpc.unary_unary_rpc_method_handler(
                     servicer.patchTicketType,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
             ),
             'getTicketTypeById': grpc.unary_unary_rpc_method_handler(
                     servicer.getTicketTypeById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
             ),
             'getTicketTypeByUserDefinedId': grpc.unary_unary_rpc_method_handler(
                     servicer.getTicketTypeByUserDefinedId,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.GetByUidRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.GetByUidRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
             ),
             'deleteTicketType': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteTicketType,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listTicketTypes': grpc.unary_stream_rpc_method_handler(
                     servicer.listTicketTypes,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketTypeListRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketTypeListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
             ),
             'issueTicket': grpc.unary_unary_rpc_method_handler(
                     servicer.issueTicket,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.IssueTicketRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.IssueTicketRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'issueTicketById': grpc.unary_unary_rpc_method_handler(
                     servicer.issueTicketById,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__pb2.IssueTicketResponseIds.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.IssueTicketResponseIds.SerializeToString,
             ),
             'updateTicket': grpc.unary_unary_rpc_method_handler(
                     servicer.updateTicket,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'patchPerson': grpc.unary_unary_rpc_method_handler(
                     servicer.patchPerson,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.EventTicketPerson.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.EventTicketPerson.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'validateTicket': grpc.unary_unary_rpc_method_handler(
                     servicer.validateTicket,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.ValidateTicketRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__pb2.ValidateTicketResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.ValidateTicketRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.ValidateTicketResponse.SerializeToString,
             ),
             'redeemTicket': grpc.unary_unary_rpc_method_handler(
                     servicer.redeemTicket,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.RedeemTicketRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.RedeemTicketRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'redeemTicketsByOrderNumber': grpc.unary_unary_rpc_method_handler(
                     servicer.redeemTicketsByOrderNumber,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.RedeemByOrderNumber.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Ids.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.RedeemByOrderNumber.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Ids.SerializeToString,
             ),
             'getTicketById': grpc.unary_unary_rpc_method_handler(
                     servicer.getTicketById,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
             ),
             'getTicketByTicketNumber': grpc.unary_unary_rpc_method_handler(
                     servicer.getTicketByTicketNumber,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.TicketNumberRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketNumberRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
             ),
             'getTicketsByOrderNumber': grpc.unary_unary_rpc_method_handler(
                     servicer.getTicketsByOrderNumber,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__pb2.Tickets.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Tickets.SerializeToString,
             ),
             'getEventTicketPass': grpc.unary_unary_rpc_method_handler(
                     servicer.getEventTicketPass,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.EventTicketPassRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.PassBundles.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.EventTicketPassRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.PassBundles.SerializeToString,
             ),
             'deleteTicket': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteTicket,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.TicketId.FromString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketId.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'bulkDeleteTickets': grpc.unary_unary_rpc_method_handler(
+                    servicer.bulkDeleteTickets,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.BulkPassActionRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'deleteTicketsByOrderNumber': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteTicketsByOrderNumber,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'listTickets': grpc.unary_stream_rpc_method_handler(
                     servicer.listTickets,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.FromString,
-                    response_serializer=io_dot_event__tickets_dot_ticket__pb2.TicketLimitedFields.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketLimitedFields.SerializeToString,
             ),
             'countTickets': grpc.unary_unary_rpc_method_handler(
                     servicer.countTickets,
-                    request_deserializer=io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -727,7 +789,8 @@ def add_EventTicketsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class EventTickets(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Event Tickets API allows you to create, manage, and distribute digital tickets for events, including productions, venues, ticket types, and individual tickets. Seamlessly issue and validate Apple Wallet and Google Wallet passes, automate event flows, and track redemptions in real time.
+    """
 
     @staticmethod
     def createProduction(request,
@@ -744,8 +807,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/createProduction',
-            io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -771,8 +834,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/patchProduction',
-            io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
-            io_dot_event__tickets_dot_production__pb2.Production.FromString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
             options,
             channel_credentials,
             insecure,
@@ -798,8 +861,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/updateProduction',
-            io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
-            io_dot_event__tickets_dot_production__pb2.Production.FromString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
             options,
             channel_credentials,
             insecure,
@@ -825,8 +888,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getProduction',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_event__tickets_dot_production__pb2.Production.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
             options,
             channel_credentials,
             insecure,
@@ -852,7 +915,7 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/deleteProduction',
-            io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -879,8 +942,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/listProductions',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_event__tickets_dot_production__pb2.Production.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.Production.FromString,
             options,
             channel_credentials,
             insecure,
@@ -906,8 +969,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getAnalytics',
-            io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
-            io_dot_event__tickets_dot_production__pb2.ProductionAnalyticsResponse.FromString,
+            passkit_dot_io_dot_common_dot_reporting__pb2.AnalyticsRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.ProductionAnalyticsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -933,8 +996,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/copyProduction',
-            io_dot_event__tickets_dot_production__pb2.ProductionCopyRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_production__pb2.ProductionCopyRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -960,8 +1023,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/createVenue',
-            io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -987,8 +1050,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/updateVenue',
-            io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
-            io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1014,8 +1077,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/patchVenue',
-            io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
-            io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1041,8 +1104,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getVenueById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1068,7 +1131,7 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/deleteVenue',
-            io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1095,8 +1158,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/listVenues',
-            io_dot_common_dot_filter__pb2.Filters.SerializeToString,
-            io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
+            passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_venue__pb2.Venue.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1122,8 +1185,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/createEvent',
-            io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1149,8 +1212,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/updateEvent',
-            io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
-            io_dot_event__tickets_dot_event__pb2.Event.FromString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1176,8 +1239,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/patchEvent',
-            io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
-            io_dot_event__tickets_dot_event__pb2.Event.FromString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1203,8 +1266,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getEventById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_event__tickets_dot_event__pb2.Event.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1230,8 +1293,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getEventByStartDateAndVenue',
-            io_dot_event__tickets_dot_event__pb2.GetEventRequest.SerializeToString,
-            io_dot_event__tickets_dot_event__pb2.Event.FromString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.GetEventRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1257,7 +1320,7 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/deleteEvent',
-            io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.Event.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1284,8 +1347,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/listEvents',
-            io_dot_event__tickets_dot_event__pb2.EventListRequest.SerializeToString,
-            io_dot_event__tickets_dot_event__pb2.EventListResponse.FromString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.EventListRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_event__pb2.EventListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1311,8 +1374,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/createTicketType',
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1338,8 +1401,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/updateTicketType',
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1365,8 +1428,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/patchTicketType',
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1392,8 +1455,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getTicketTypeById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1419,8 +1482,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getTicketTypeByUserDefinedId',
-            io_dot_event__tickets_dot_ticket__type__pb2.GetByUidRequest.SerializeToString,
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.GetByUidRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1446,7 +1509,7 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/deleteTicketType',
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1473,8 +1536,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/listTicketTypes',
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketTypeListRequest.SerializeToString,
-            io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketTypeListRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__type__pb2.TicketType.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1500,8 +1563,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/issueTicket',
-            io_dot_event__tickets_dot_ticket__pb2.IssueTicketRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.IssueTicketRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1527,8 +1590,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/issueTicketById',
-            io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
-            io_dot_event__tickets_dot_ticket__pb2.IssueTicketResponseIds.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.IssueTicketResponseIds.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1554,8 +1617,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/updateTicket',
-            io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1581,8 +1644,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/patchPerson',
-            io_dot_event__tickets_dot_ticket__pb2.EventTicketPerson.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.EventTicketPerson.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1608,8 +1671,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/validateTicket',
-            io_dot_event__tickets_dot_ticket__pb2.ValidateTicketRequest.SerializeToString,
-            io_dot_event__tickets_dot_ticket__pb2.ValidateTicketResponse.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.ValidateTicketRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.ValidateTicketResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1635,8 +1698,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/redeemTicket',
-            io_dot_event__tickets_dot_ticket__pb2.RedeemTicketRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.RedeemTicketRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1662,8 +1725,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/redeemTicketsByOrderNumber',
-            io_dot_event__tickets_dot_ticket__pb2.RedeemByOrderNumber.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Ids.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.RedeemByOrderNumber.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Ids.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1689,8 +1752,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getTicketById',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1716,8 +1779,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getTicketByTicketNumber',
-            io_dot_event__tickets_dot_ticket__pb2.TicketNumberRequest.SerializeToString,
-            io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketNumberRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Ticket.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1743,8 +1806,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getTicketsByOrderNumber',
-            io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
-            io_dot_event__tickets_dot_ticket__pb2.Tickets.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.Tickets.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1770,8 +1833,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/getEventTicketPass',
-            io_dot_event__tickets_dot_ticket__pb2.EventTicketPassRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.PassBundles.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.EventTicketPassRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.PassBundles.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1797,7 +1860,34 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/deleteTicket',
-            io_dot_event__tickets_dot_ticket__pb2.TicketId.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketId.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def bulkDeleteTickets(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/event_tickets.EventTickets/bulkDeleteTickets',
+            passkit_dot_io_dot_common_dot_common__objects__pb2.BulkPassActionRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1824,7 +1914,7 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/deleteTicketsByOrderNumber',
-            io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.OrderNumberRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -1851,8 +1941,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/listTickets',
-            io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
-            io_dot_event__tickets_dot_ticket__pb2.TicketLimitedFields.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketLimitedFields.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1878,8 +1968,8 @@ class EventTickets(object):
             request,
             target,
             '/event_tickets.EventTickets/countTickets',
-            io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Count.FromString,
+            passkit_dot_io_dot_event__tickets_dot_ticket__pb2.TicketListRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
             options,
             channel_credentials,
             insecure,

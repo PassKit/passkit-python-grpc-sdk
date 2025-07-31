@@ -3,12 +3,13 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import distribution_pb2 as io_dot_common_dot_distribution__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import distribution_pb2 as passkit_dot_io_dot_common_dot_distribution__pb2
 
 
 class DistributionStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Distribution API allows you to create SmartPass links and manage the distribution of digital passes to your customers via email.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -18,71 +19,78 @@ class DistributionStub(object):
         """
         self.sendWelcomeEmail = channel.unary_unary(
                 '/io.Distribution/sendWelcomeEmail',
-                request_serializer=io_dot_common_dot_distribution__pb2.EmailDistributionRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_distribution__pb2.EmailDistributionRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.getSmartPassLink = channel.unary_unary(
                 '/io.Distribution/getSmartPassLink',
-                request_serializer=io_dot_common_dot_distribution__pb2.SmartPassLinkRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Url.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_distribution__pb2.SmartPassLinkRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
                 _registered_method=True)
         self.getDataCollectionPageFields = channel.unary_unary(
                 '/io.Distribution/getDataCollectionPageFields',
-                request_serializer=io_dot_common_dot_common__objects__pb2.ClassObjectInput.SerializeToString,
-                response_deserializer=io_dot_common_dot_distribution__pb2.DataCollectionFields.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.ClassObjectInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_distribution__pb2.DataCollectionFields.FromString,
                 _registered_method=True)
         self.uploadSmartPassCsv = channel.unary_unary(
                 '/io.Distribution/uploadSmartPassCsv',
-                request_serializer=io_dot_common_dot_distribution__pb2.SmartPassCsvUploadRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_distribution__pb2.SmartPassCsvUploadRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.importProtocolCsv = channel.unary_unary(
                 '/io.Distribution/importProtocolCsv',
-                request_serializer=io_dot_common_dot_distribution__pb2.ImportProtocolRequest.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_distribution__pb2.ImportProtocolRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.validateBarcode = channel.unary_unary(
                 '/io.Distribution/validateBarcode',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Payload.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.FromString,
                 _registered_method=True)
 
 
 class DistributionServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Distribution API allows you to create SmartPass links and manage the distribution of digital passes to your customers via email.
+    """
 
     def sendWelcomeEmail(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Sends a welcome email to a single recipient using a valid pass protocol (e.g., membership, coupon, ticket). Required Fields: passId or externalId, classId, protocol.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getSmartPassLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Generates and returns an encrypted SmartPass link for a member, coupon, or event ticket based on the request payload. Required Fields: passId or externalId, classId.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getDataCollectionPageFields(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns a list of fields to be displayed on the data collection page. For the Member protocol, classId is required. Required Fields: classId (only for MEMBERSHIP protocol)
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def uploadSmartPassCsv(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Accepts a CSV file containing user data and a project short code, processes SmartPass creation, and sends results to the user via email. Required Fields: shortCode, csv contents.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def importProtocolCsv(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Imports and processes a formatted CSV file for a given protocol (e.g., member, coupon) and creates billable records. Required: classId, protocol, and valid csv contents.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def validateBarcode(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Validates a time-based one-time password (TOTP) barcode string in the format {{payload}}||{{key}}||{{timestamp}}||{{totp}}. If valid, returns the cleaned payload without TOTP metadata. Required Fields: payload.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -92,33 +100,33 @@ def add_DistributionServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'sendWelcomeEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.sendWelcomeEmail,
-                    request_deserializer=io_dot_common_dot_distribution__pb2.EmailDistributionRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_distribution__pb2.EmailDistributionRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'getSmartPassLink': grpc.unary_unary_rpc_method_handler(
                     servicer.getSmartPassLink,
-                    request_deserializer=io_dot_common_dot_distribution__pb2.SmartPassLinkRequest.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_distribution__pb2.SmartPassLinkRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Url.SerializeToString,
             ),
             'getDataCollectionPageFields': grpc.unary_unary_rpc_method_handler(
                     servicer.getDataCollectionPageFields,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.ClassObjectInput.FromString,
-                    response_serializer=io_dot_common_dot_distribution__pb2.DataCollectionFields.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.ClassObjectInput.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_distribution__pb2.DataCollectionFields.SerializeToString,
             ),
             'uploadSmartPassCsv': grpc.unary_unary_rpc_method_handler(
                     servicer.uploadSmartPassCsv,
-                    request_deserializer=io_dot_common_dot_distribution__pb2.SmartPassCsvUploadRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_distribution__pb2.SmartPassCsvUploadRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'importProtocolCsv': grpc.unary_unary_rpc_method_handler(
                     servicer.importProtocolCsv,
-                    request_deserializer=io_dot_common_dot_distribution__pb2.ImportProtocolRequest.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_distribution__pb2.ImportProtocolRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'validateBarcode': grpc.unary_unary_rpc_method_handler(
                     servicer.validateBarcode,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Payload.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -129,7 +137,8 @@ def add_DistributionServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Distribution(object):
-    """Missing associated documentation comment in .proto file."""
+    """The PassKit Distribution API allows you to create SmartPass links and manage the distribution of digital passes to your customers via email.
+    """
 
     @staticmethod
     def sendWelcomeEmail(request,
@@ -146,7 +155,7 @@ class Distribution(object):
             request,
             target,
             '/io.Distribution/sendWelcomeEmail',
-            io_dot_common_dot_distribution__pb2.EmailDistributionRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_distribution__pb2.EmailDistributionRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -173,8 +182,8 @@ class Distribution(object):
             request,
             target,
             '/io.Distribution/getSmartPassLink',
-            io_dot_common_dot_distribution__pb2.SmartPassLinkRequest.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Url.FromString,
+            passkit_dot_io_dot_common_dot_distribution__pb2.SmartPassLinkRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Url.FromString,
             options,
             channel_credentials,
             insecure,
@@ -200,8 +209,8 @@ class Distribution(object):
             request,
             target,
             '/io.Distribution/getDataCollectionPageFields',
-            io_dot_common_dot_common__objects__pb2.ClassObjectInput.SerializeToString,
-            io_dot_common_dot_distribution__pb2.DataCollectionFields.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.ClassObjectInput.SerializeToString,
+            passkit_dot_io_dot_common_dot_distribution__pb2.DataCollectionFields.FromString,
             options,
             channel_credentials,
             insecure,
@@ -227,7 +236,7 @@ class Distribution(object):
             request,
             target,
             '/io.Distribution/uploadSmartPassCsv',
-            io_dot_common_dot_distribution__pb2.SmartPassCsvUploadRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_distribution__pb2.SmartPassCsvUploadRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -254,7 +263,7 @@ class Distribution(object):
             request,
             target,
             '/io.Distribution/importProtocolCsv',
-            io_dot_common_dot_distribution__pb2.ImportProtocolRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_distribution__pb2.ImportProtocolRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -281,8 +290,8 @@ class Distribution(object):
             request,
             target,
             '/io.Distribution/validateBarcode',
-            io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Payload.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.FromString,
             options,
             channel_credentials,
             insecure,

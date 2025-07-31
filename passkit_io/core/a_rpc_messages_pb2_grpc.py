@@ -3,8 +3,8 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from passkit_io.common import common_objects_pb2 as io_dot_common_dot_common__objects__pb2
-from passkit_io.common import message_pb2 as io_dot_common_dot_message__pb2
+from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
+from passkit.io.common import message_pb2 as passkit_dot_io_dot_common_dot_message__pb2
 
 
 class MessagesStub(object):
@@ -18,28 +18,28 @@ class MessagesStub(object):
         """
         self.getMessage = channel.unary_unary(
                 '/io.Messages/getMessage',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-                response_deserializer=io_dot_common_dot_message__pb2.Message.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
                 _registered_method=True)
         self.createMessage = channel.unary_unary(
                 '/io.Messages/createMessage',
-                request_serializer=io_dot_common_dot_message__pb2.Message.SerializeToString,
-                response_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                 _registered_method=True)
         self.updateMessage = channel.unary_unary(
                 '/io.Messages/updateMessage',
-                request_serializer=io_dot_common_dot_message__pb2.Message.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.deleteMessage = channel.unary_unary(
                 '/io.Messages/deleteMessage',
-                request_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
         self.sendMessage = channel.unary_unary(
                 '/io.Messages/sendMessage',
-                request_serializer=io_dot_common_dot_message__pb2.SendMessageRequest.SerializeToString,
-                response_deserializer=io_dot_common_dot_message__pb2.SendMessageResponse.FromString,
+                request_serializer=passkit_dot_io_dot_common_dot_message__pb2.SendMessageRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_message__pb2.SendMessageResponse.FromString,
                 _registered_method=True)
 
 
@@ -47,31 +47,36 @@ class MessagesServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def getMessage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Retrieves a single message by its ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def createMessage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Creates a new message that can be linked to a pass or class. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateMessage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Updates an existing message by ID. Required Fields: id.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteMessage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Deletes a message by its ID. Required Fields: id. Note: Deleting a message removes it from all linked passes.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def sendMessage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Sends a message to specified pass IDs or to all passes in a class. Required: passId, protocol.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -81,28 +86,28 @@ def add_MessagesServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'getMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.getMessage,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
-                    response_serializer=io_dot_common_dot_message__pb2.Message.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
             ),
             'createMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.createMessage,
-                    request_deserializer=io_dot_common_dot_message__pb2.Message.FromString,
-                    response_serializer=io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             ),
             'updateMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.updateMessage,
-                    request_deserializer=io_dot_common_dot_message__pb2.Message.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'deleteMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteMessage,
-                    request_deserializer=io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'sendMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.sendMessage,
-                    request_deserializer=io_dot_common_dot_message__pb2.SendMessageRequest.FromString,
-                    response_serializer=io_dot_common_dot_message__pb2.SendMessageResponse.SerializeToString,
+                    request_deserializer=passkit_dot_io_dot_common_dot_message__pb2.SendMessageRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_message__pb2.SendMessageResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -130,8 +135,8 @@ class Messages(object):
             request,
             target,
             '/io.Messages/getMessage',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
-            io_dot_common_dot_message__pb2.Message.FromString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
             options,
             channel_credentials,
             insecure,
@@ -157,8 +162,8 @@ class Messages(object):
             request,
             target,
             '/io.Messages/createMessage',
-            io_dot_common_dot_message__pb2.Message.SerializeToString,
-            io_dot_common_dot_common__objects__pb2.Id.FromString,
+            passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
             options,
             channel_credentials,
             insecure,
@@ -184,7 +189,7 @@ class Messages(object):
             request,
             target,
             '/io.Messages/updateMessage',
-            io_dot_common_dot_message__pb2.Message.SerializeToString,
+            passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -211,7 +216,7 @@ class Messages(object):
             request,
             target,
             '/io.Messages/deleteMessage',
-            io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
@@ -238,8 +243,8 @@ class Messages(object):
             request,
             target,
             '/io.Messages/sendMessage',
-            io_dot_common_dot_message__pb2.SendMessageRequest.SerializeToString,
-            io_dot_common_dot_message__pb2.SendMessageResponse.FromString,
+            passkit_dot_io_dot_common_dot_message__pb2.SendMessageRequest.SerializeToString,
+            passkit_dot_io_dot_common_dot_message__pb2.SendMessageResponse.FromString,
             options,
             channel_credentials,
             insecure,
