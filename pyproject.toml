@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "passkit-python-grpc-sdk"
-version = "1.1.123"
+version = "1.1.123.5"
 authors = [
   { name="passkit", email="support@passkit.com" },
 ]
@@ -22,4 +22,4 @@ classifiers = [
 "Bug Tracker" = "https://github.com/PassKit/passkit-python-grpc-sdk/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["passkit_io", "ct"]
+packages = ["passkit"]
