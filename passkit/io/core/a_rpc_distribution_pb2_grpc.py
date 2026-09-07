@@ -5,6 +5,7 @@ import grpc
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
 from passkit.io.common import distribution_pb2 as passkit_dot_io_dot_common_dot_distribution__pb2
+from passkit.io.common import message_pb2 as passkit_dot_io_dot_common_dot_message__pb2
 
 
 class DistributionStub(object):
@@ -46,6 +47,31 @@ class DistributionStub(object):
                 '/io.Distribution/validateBarcode',
                 request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
                 response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.FromString,
+                _registered_method=True)
+        self.addMessage = channel.unary_unary(
+                '/io.Distribution/addMessage',
+                request_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                _registered_method=True)
+        self.getMessage = channel.unary_unary(
+                '/io.Distribution/getMessage',
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+                _registered_method=True)
+        self.getMessages = channel.unary_stream(
+                '/io.Distribution/getMessages',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+                _registered_method=True)
+        self.updateMessage = channel.unary_unary(
+                '/io.Distribution/updateMessage',
+                request_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                _registered_method=True)
+        self.cancelMessage = channel.unary_unary(
+                '/io.Distribution/cancelMessage',
+                request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
 
 
@@ -95,6 +121,36 @@ class DistributionServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def addMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getMessages(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def updateMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def cancelMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DistributionServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -127,6 +183,31 @@ def add_DistributionServicer_to_server(servicer, server):
                     servicer.validateBarcode,
                     request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.FromString,
                     response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
+            ),
+            'addMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.addMessage,
+                    request_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'getMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.getMessage,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+            ),
+            'getMessages': grpc.unary_stream_rpc_method_handler(
+                    servicer.getMessages,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+            ),
+            'updateMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateMessage,
+                    request_deserializer=passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'cancelMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.cancelMessage,
+                    request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -292,6 +373,141 @@ class Distribution(object):
             '/io.Distribution/validateBarcode',
             passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.SerializeToString,
             passkit_dot_io_dot_common_dot_common__objects__pb2.Payload.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def addMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Distribution/addMessage',
+            passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def getMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Distribution/getMessage',
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def getMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/io.Distribution/getMessages',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            passkit_dot_io_dot_common_dot_message__pb2.Message.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def updateMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Distribution/updateMessage',
+            passkit_dot_io_dot_common_dot_message__pb2.Message.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def cancelMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Distribution/cancelMessage',
+            passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
             insecure,

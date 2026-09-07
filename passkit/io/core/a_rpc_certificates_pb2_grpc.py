@@ -59,6 +59,31 @@ class CertificatesStub(object):
                 request_serializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
                 response_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
                 _registered_method=True)
+        self.createAppleCertificateRenewalAuthority = channel.unary_unary(
+                '/io.Certificates/createAppleCertificateRenewalAuthority',
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CreateAppleCertificateRenewalAuthorityRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+                _registered_method=True)
+        self.getAppleCertificateRenewalAuthority = channel.unary_unary(
+                '/io.Certificates/getAppleCertificateRenewalAuthority',
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.GetAppleCertificateRenewalAuthorityRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+                _registered_method=True)
+        self.updateAppleCertificateRenewalAuthority = channel.unary_unary(
+                '/io.Certificates/updateAppleCertificateRenewalAuthority',
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.UpdateAppleCertificateRenewalAuthorityRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+                _registered_method=True)
+        self.deleteAppleCertificateRenewalAuthority = channel.unary_unary(
+                '/io.Certificates/deleteAppleCertificateRenewalAuthority',
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.GetAppleCertificateRenewalAuthorityRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.DeleteAppleCertificateRenewalAuthorityResponse.FromString,
+                _registered_method=True)
+        self.listAppleCertificateRenewalAuthorities = channel.unary_stream(
+                '/io.Certificates/listAppleCertificateRenewalAuthorities',
+                request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.ListAppleCertificateRenewalAuthoritiesRequest.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+                _registered_method=True)
         self.sendNFCSigningCredentials = channel.unary_unary(
                 '/io.Certificates/sendNFCSigningCredentials',
                 request_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.NFCSigningCredentialsRequest.SerializeToString,
@@ -126,6 +151,41 @@ class CertificatesServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def createAppleCertificateRenewalAuthority(self, request, context):
+        """Creates an Apple certificate renewal authority for the authenticated user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getAppleCertificateRenewalAuthority(self, request, context):
+        """Retrieves an Apple certificate renewal authority by ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def updateAppleCertificateRenewalAuthority(self, request, context):
+        """Updates an Apple certificate renewal authority.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def deleteAppleCertificateRenewalAuthority(self, request, context):
+        """Deletes an Apple certificate renewal authority.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def listAppleCertificateRenewalAuthorities(self, request, context):
+        """Lists Apple certificate renewal authorities visible to the authenticated user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def sendNFCSigningCredentials(self, request, context):
         """Sends NFC signing credentials for an NFC-enabled Apple certificate to the user's registered email address. Required Fields: certificateId, user email must be associated with the cert.
         """
@@ -175,6 +235,31 @@ def add_CertificatesServicer_to_server(servicer, server):
                     servicer.countAppleCertificates,
                     request_deserializer=passkit_dot_io_dot_common_dot_filter__pb2.Filters.FromString,
                     response_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Count.SerializeToString,
+            ),
+            'createAppleCertificateRenewalAuthority': grpc.unary_unary_rpc_method_handler(
+                    servicer.createAppleCertificateRenewalAuthority,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.CreateAppleCertificateRenewalAuthorityRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.SerializeToString,
+            ),
+            'getAppleCertificateRenewalAuthority': grpc.unary_unary_rpc_method_handler(
+                    servicer.getAppleCertificateRenewalAuthority,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.GetAppleCertificateRenewalAuthorityRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.SerializeToString,
+            ),
+            'updateAppleCertificateRenewalAuthority': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateAppleCertificateRenewalAuthority,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.UpdateAppleCertificateRenewalAuthorityRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.SerializeToString,
+            ),
+            'deleteAppleCertificateRenewalAuthority': grpc.unary_unary_rpc_method_handler(
+                    servicer.deleteAppleCertificateRenewalAuthority,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.GetAppleCertificateRenewalAuthorityRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.DeleteAppleCertificateRenewalAuthorityResponse.SerializeToString,
+            ),
+            'listAppleCertificateRenewalAuthorities': grpc.unary_stream_rpc_method_handler(
+                    servicer.listAppleCertificateRenewalAuthorities,
+                    request_deserializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.ListAppleCertificateRenewalAuthoritiesRequest.FromString,
+                    response_serializer=passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.SerializeToString,
             ),
             'sendNFCSigningCredentials': grpc.unary_unary_rpc_method_handler(
                     servicer.sendNFCSigningCredentials,
@@ -399,6 +484,141 @@ class Certificates(object):
             '/io.Certificates/countAppleCertificates',
             passkit_dot_io_dot_common_dot_filter__pb2.Filters.SerializeToString,
             passkit_dot_io_dot_common_dot_common__objects__pb2.Count.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def createAppleCertificateRenewalAuthority(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Certificates/createAppleCertificateRenewalAuthority',
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.CreateAppleCertificateRenewalAuthorityRequest.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def getAppleCertificateRenewalAuthority(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Certificates/getAppleCertificateRenewalAuthority',
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.GetAppleCertificateRenewalAuthorityRequest.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def updateAppleCertificateRenewalAuthority(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Certificates/updateAppleCertificateRenewalAuthority',
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.UpdateAppleCertificateRenewalAuthorityRequest.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def deleteAppleCertificateRenewalAuthority(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Certificates/deleteAppleCertificateRenewalAuthority',
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.GetAppleCertificateRenewalAuthorityRequest.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.DeleteAppleCertificateRenewalAuthorityResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def listAppleCertificateRenewalAuthorities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/io.Certificates/listAppleCertificateRenewalAuthorities',
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.ListAppleCertificateRenewalAuthoritiesRequest.SerializeToString,
+            passkit_dot_io_dot_certificate_dot_certificate__pb2.AppleCertificateRenewalAuthority.FromString,
             options,
             channel_credentials,
             insecure,

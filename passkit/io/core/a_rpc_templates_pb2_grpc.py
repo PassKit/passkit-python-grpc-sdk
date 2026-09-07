@@ -12,7 +12,7 @@ from passkit.io.common import template_pb2 as passkit_dot_io_dot_common_dot_temp
 
 
 class TemplatesStub(object):
-    """The PassKit Templates API allows you to manage your pass templates for Apple Wallet and Google Wallet.
+    """Manages pass templates and designs for Apple Wallet, Google Wallet, and data collection forms.
     """
 
     def __init__(self, channel):
@@ -229,11 +229,11 @@ class TemplatesStub(object):
 
 
 class TemplatesServicer(object):
-    """The PassKit Templates API allows you to manage your pass templates for Apple Wallet and Google Wallet.
+    """Manages pass templates and designs for Apple Wallet, Google Wallet, and data collection forms.
     """
 
     def createTemplate(self, request, context):
-        """Creates a new pass template record. Required Fields: protocol, revision, name, colors, fields
+        """Creates a pass template for a protocol and revision. Required fields: protocol, revision, name, colors, fields.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -736,7 +736,7 @@ def add_TemplatesServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Templates(object):
-    """The PassKit Templates API allows you to manage your pass templates for Apple Wallet and Google Wallet.
+    """Manages pass templates and designs for Apple Wallet, Google Wallet, and data collection forms.
     """
 
     @staticmethod

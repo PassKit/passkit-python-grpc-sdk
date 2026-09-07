@@ -14,7 +14,7 @@ from passkit.io.event_tickets import venue_pb2 as passkit_dot_io_dot_event__tick
 
 
 class EventTicketsStub(object):
-    """The PassKit Event Tickets API allows you to create, manage, and distribute digital tickets for events, including productions, venues, ticket types, and individual tickets. Seamlessly issue and validate Apple Wallet and Google Wallet passes, automate event flows, and track redemptions in real time.
+    """Manages event-ticket productions, venues, events, ticket types, tickets, validation, and redemption. Ticket types belong to a production; issued tickets are associated with an event and ticket type.
     """
 
     def __init__(self, channel):
@@ -246,7 +246,7 @@ class EventTicketsStub(object):
 
 
 class EventTicketsServicer(object):
-    """The PassKit Event Tickets API allows you to create, manage, and distribute digital tickets for events, including productions, venues, ticket types, and individual tickets. Seamlessly issue and validate Apple Wallet and Google Wallet passes, automate event flows, and track redemptions in real time.
+    """Manages event-ticket productions, venues, events, ticket types, tickets, validation, and redemption. Ticket types belong to a production; issued tickets are associated with an event and ticket type.
     """
 
     def createProduction(self, request, context):
@@ -348,7 +348,7 @@ class EventTicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def createEvent(self, request, context):
-        """Creates a new Event for a Production. Required fields: production object and venue object.
+        """Creates an event for a production at a venue. Required fields: production and venue.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -446,7 +446,7 @@ class EventTicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def issueTicket(self, request, context):
-        """Issues a new Ticket by PassKit IDs. Required fields: ticketTypeId, eventId, ticketNumber, person.name.
+        """Issues a ticket using PassKit IDs for its ticket type and event. Required fields: ticketTypeId, eventId, ticketNumber, person.name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -474,14 +474,14 @@ class EventTicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def validateTicket(self, request, context):
-        """Validates a Ticket. Required fields: id or (ticketNumber + productionId).
+        """Validates a ticket without redeeming it. Required fields: id or ticketNumber with productionId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def redeemTicket(self, request, context):
-        """Redeems a Ticket. Required fields: id or (ticketNumber + productionId).
+        """Redeems a ticket and records the redemption. Required fields: id or ticketNumber with productionId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -516,7 +516,7 @@ class EventTicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def getEventTicketPass(self, request, context):
-        """Retrieves the digital pass bundle for a Ticket. Required fields: ticketId or (productionId + ticketNumber/orderNumber).
+        """Retrieves the digital pass bundle for a ticket. Required fields: ticketId, or productionId with ticketNumber or orderNumber.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -789,7 +789,7 @@ def add_EventTicketsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class EventTickets(object):
-    """The PassKit Event Tickets API allows you to create, manage, and distribute digital tickets for events, including productions, venues, ticket types, and individual tickets. Seamlessly issue and validate Apple Wallet and Google Wallet passes, automate event flows, and track redemptions in real time.
+    """Manages event-ticket productions, venues, events, ticket types, tickets, validation, and redemption. Ticket types belong to a production; issued tickets are associated with an event and ticket type.
     """
 
     @staticmethod

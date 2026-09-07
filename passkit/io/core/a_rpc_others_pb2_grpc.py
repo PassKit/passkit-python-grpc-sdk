@@ -70,6 +70,11 @@ class UsersStub(object):
                 request_serializer=passkit_dot_io_dot_user_dot_user__pb2.PasswordResetInput.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
+        self.changeOwnPassword = channel.unary_unary(
+                '/io.Users/changeOwnPassword',
+                request_serializer=passkit_dot_io_dot_user_dot_user__pb2.ChangeOwnPasswordInput.SerializeToString,
+                response_deserializer=passkit_dot_io_dot_user_dot_user__pb2.JWT.FromString,
+                _registered_method=True)
         self.changeEmail = channel.unary_unary(
                 '/io.Users/changeEmail',
                 request_serializer=passkit_dot_io_dot_user_dot_user__pb2.Email.SerializeToString,
@@ -275,6 +280,13 @@ class UsersServicer(object):
 
     def changePassword(self, request, context):
         """Changes the user's password using a reset token. Required Fields: token, password.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def changeOwnPassword(self, request, context):
+        """Changes the currently authenticated user's password. Requires a valid auth token and the current password. Required Fields: currentPassword, newPassword, confirmNewPassword.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -521,6 +533,11 @@ def add_UsersServicer_to_server(servicer, server):
                     servicer.changePassword,
                     request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.PasswordResetInput.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'changeOwnPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.changeOwnPassword,
+                    request_deserializer=passkit_dot_io_dot_user_dot_user__pb2.ChangeOwnPasswordInput.FromString,
+                    response_serializer=passkit_dot_io_dot_user_dot_user__pb2.JWT.SerializeToString,
             ),
             'changeEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.changeEmail,
@@ -928,6 +945,33 @@ class Users(object):
             '/io.Users/changePassword',
             passkit_dot_io_dot_user_dot_user__pb2.PasswordResetInput.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def changeOwnPassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/io.Users/changeOwnPassword',
+            passkit_dot_io_dot_user_dot_user__pb2.ChangeOwnPasswordInput.SerializeToString,
+            passkit_dot_io_dot_user_dot_user__pb2.JWT.FromString,
             options,
             channel_credentials,
             insecure,

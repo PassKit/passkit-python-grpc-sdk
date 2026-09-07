@@ -11,7 +11,7 @@ from passkit.io.flights import flight_pb2 as passkit_dot_io_dot_flights_dot_flig
 
 
 class FlightsStub(object):
-    """Manage digital boarding passes for Apple Wallet and Google Wallet with the PassKit Flights API.
+    """Manages carriers, flight designators, flights, and digital boarding passes. Carrier and flight-designator records provide data used when creating flights and boarding passes.
     """
 
     def __init__(self, channel):
@@ -128,7 +128,7 @@ class FlightsStub(object):
 
 
 class FlightsServicer(object):
-    """Manage digital boarding passes for Apple Wallet and Google Wallet with the PassKit Flights API.
+    """Manages carriers, flight designators, flights, and digital boarding passes. Carrier and flight-designator records provide data used when creating flights and boarding passes.
     """
 
     def createPort(self, request, context):
@@ -216,7 +216,7 @@ class FlightsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def createFlight(self, request, context):
-        """Create a flight record. In practice, this method is not often used, since flight records can be automatically generated. Any information in the flight record will override information in the carrier and flight designator records. Required Fields: carrierCode, flightNumber, departureDate, boardingPoint, deplaningPoint.
+        """Creates a flight record. Flight records can be generated automatically; values on this record override carrier and flight-designator data. Required fields: carrierCode, flightNumber, departureDate, boardingPoint, deplaningPoint.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -244,7 +244,7 @@ class FlightsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def createBoardingPass(self, request, context):
-        """Create a boarding pass record. Flight related information not present in the boarding pass record will be populated from the flight, flight designator or carrier records.  Required Fields: operatingCarrierPNR, boardingPoint, deplaningPoint, carrierCode, flightNumber, departureDate, passenger, sequenceNumber.
+        """Creates a boarding-pass record. Missing flight data is populated from the related flight, flight designator, or carrier records. Required fields: operatingCarrierPNR, boardingPoint, deplaningPoint, carrierCode, flightNumber, departureDate, passenger, sequenceNumber.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -258,7 +258,7 @@ class FlightsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def getBoardingPass(self, request, context):
-        """Retrieve digital boarding pass(es) in the requested format by ticket number, index, PNR or id. Required Fields: ticketNumber or index or passId.
+        """Retrieves digital boarding passes in the requested format by ticket number, index, PNR, or pass ID. Required fields: ticketNumber, index, or passId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -395,7 +395,7 @@ def add_FlightsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Flights(object):
-    """Manage digital boarding passes for Apple Wallet and Google Wallet with the PassKit Flights API.
+    """Manages carriers, flight designators, flights, and digital boarding passes. Carrier and flight-designator records provide data used when creating flights and boarding passes.
     """
 
     @staticmethod

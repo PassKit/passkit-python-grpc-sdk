@@ -14,7 +14,7 @@ from passkit.io.single_use_coupons import offer_pb2 as passkit_dot_io_dot_single
 
 
 class SingleUseCouponsStub(object):
-    """The PassKit Coupons API offers a robust and adaptable solution for managing your digital coupon programs. Effortlessly create, update, and maintain mobile coupons for Apple Wallet and Google Wallet. Seamlessly integrate coupon functionality into your applications to deliver engaging, real-time promotions to your customers.
+    """Manages coupon campaigns, offers, coupon issuance, redemption, and voiding. Create a campaign and offer before issuing coupons.
     """
 
     def __init__(self, channel):
@@ -176,7 +176,7 @@ class SingleUseCouponsStub(object):
 
 
 class SingleUseCouponsServicer(object):
-    """The PassKit Coupons API offers a robust and adaptable solution for managing your digital coupon programs. Effortlessly create, update, and maintain mobile coupons for Apple Wallet and Google Wallet. Seamlessly integrate coupon functionality into your applications to deliver engaging, real-time promotions to your customers.
+    """Manages coupon campaigns, offers, coupon issuance, redemption, and voiding. Create a campaign and offer before issuing coupons.
     """
 
     def createCouponCampaign(self, request, context):
@@ -229,7 +229,7 @@ class SingleUseCouponsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def createCouponOffer(self, request, context):
-        """Creates a new coupon offer, including title, pass design, and rules. Required fields: campaignId, offerTitle, offerDetails, beforeRedeemPassTemplateId.
+        """Creates an offer within a coupon campaign, including its pass design and redemption rules. Required fields: campaignId, offerTitle, offerDetails, beforeRedeemPassTemplateId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -271,7 +271,7 @@ class SingleUseCouponsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def createCoupon(self, request, context):
-        """Creates a new unique coupon assigned to a specific offer. Required fields: campaignId, offerId, pass data.
+        """Issues a unique coupon for an offer in a campaign. Required fields: campaignId, offerId, pass data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -292,7 +292,7 @@ class SingleUseCouponsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def redeemCoupon(self, request, context):
-        """Marks a coupon as redeemed and triggers redemption-specific design. Required fields: coupon id , or externalId, offerId and campaignId.
+        """Marks a coupon as redeemed and applies its redemption-specific design. Required fields: coupon ID, or externalId with offerId and campaignId.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -327,7 +327,7 @@ class SingleUseCouponsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def voidCoupon(self, request, context):
-        """Voids a coupon and invalidates it in the customer’s mobile wallet. Required fields: coupon id, or externalId, offerId and campaignId. Use with caution, as this action is irreversible.
+        """Voids a coupon and invalidates it in the customer’s wallet. Required fields: coupon ID, or externalId with offerId and campaignId. This action is irreversible.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -551,7 +551,7 @@ def add_SingleUseCouponsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class SingleUseCoupons(object):
-    """The PassKit Coupons API offers a robust and adaptable solution for managing your digital coupon programs. Effortlessly create, update, and maintain mobile coupons for Apple Wallet and Google Wallet. Seamlessly integrate coupon functionality into your applications to deliver engaging, real-time promotions to your customers.
+    """Manages coupon campaigns, offers, coupon issuance, redemption, and voiding. Create a campaign and offer before issuing coupons.
     """
 
     @staticmethod

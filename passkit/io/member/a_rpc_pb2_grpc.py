@@ -3,6 +3,7 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
+from passkit.io.common import batch_update_pb2 as passkit_dot_io_dot_common_dot_batch__update__pb2
 from passkit.io.common import common_objects_pb2 as passkit_dot_io_dot_common_dot_common__objects__pb2
 from passkit.io.common import distribution_pb2 as passkit_dot_io_dot_common_dot_distribution__pb2
 from passkit.io.common import filter_pb2 as passkit_dot_io_dot_common_dot_filter__pb2
@@ -16,7 +17,7 @@ from passkit.io.member import tier_pb2 as passkit_dot_io_dot_member_dot_tier__pb
 
 
 class MembersStub(object):
-    """The PassKit Members API provides a powerful and flexible way to manage your membership programs, including creating, updating, and maintaining digital membership passes for Apple Wallet and Google Wallet. Easily integrate membership functionality into your applications to deliver seamless, real-time experiences for your members.
+    """Manages membership programmes, tiers, members, member events, pass lifecycle, and point balances. Create a programme before creating tiers or enrolling members.
     """
 
     def __init__(self, channel):
@@ -250,10 +251,15 @@ class MembersStub(object):
                 request_serializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
                 response_deserializer=passkit_dot_io_dot_common_dot_distribution__pb2.EnrolmentUrls.FromString,
                 _registered_method=True)
+        self.batchUpdate = channel.unary_unary(
+                '/members.Members/batchUpdate',
+                request_serializer=passkit_dot_io_dot_common_dot_batch__update__pb2.BatchUpdateRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                _registered_method=True)
 
 
 class MembersServicer(object):
-    """The PassKit Members API provides a powerful and flexible way to manage your membership programs, including creating, updating, and maintaining digital membership passes for Apple Wallet and Google Wallet. Easily integrate membership functionality into your applications to deliver seamless, real-time experiences for your members.
+    """Manages membership programmes, tiers, members, member events, pass lifecycle, and point balances. Create a programme before creating tiers or enrolling members.
     """
 
     def createProgram(self, request, context):
@@ -348,14 +354,14 @@ class MembersServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def enrolMember(self, request, context):
-        """Enrols a new member into a program and generates a pass. Required fields: program id and member data.
+        """Enrols a member in a programme and creates their pass record. The request must identify the target programme and member data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def enrolMemberPublic(self, request, context):
-        """Public endpoint to enrol a new member into a program without authentication. Required fields: program id and member data.
+        """Enrols a member through the public, unauthenticated enrolment endpoint. The request must identify the target programme and member data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -404,7 +410,7 @@ class MembersServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def updateMember(self, request, context):
-        """Updates an existing member’s personal details or status using PassKit Id or External Id. Required fields: member id or program id and external id. If updating personal information only use patchPerson.
+        """Updates a member record by PassKit ID or external ID. Use patchPerson when changing personal information only.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -566,6 +572,13 @@ class MembersServicer(object):
 
     def getProgramEnrolment(self, request, context):
         """Retrieves enrolment URLs and QR codes for a membership program, including tier-specific links if applicable. Required fields: program id.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def batchUpdate(self, request, context):
+        """Applies the supplied field updates to members selected by the request filters. Required fields: classId, filterGroups, updateEntries.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -799,6 +812,11 @@ def add_MembersServicer_to_server(servicer, server):
                     request_deserializer=passkit_dot_io_dot_common_dot_common__objects__pb2.Id.FromString,
                     response_serializer=passkit_dot_io_dot_common_dot_distribution__pb2.EnrolmentUrls.SerializeToString,
             ),
+            'batchUpdate': grpc.unary_unary_rpc_method_handler(
+                    servicer.batchUpdate,
+                    request_deserializer=passkit_dot_io_dot_common_dot_batch__update__pb2.BatchUpdateRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'members.Members', rpc_method_handlers)
@@ -808,7 +826,7 @@ def add_MembersServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Members(object):
-    """The PassKit Members API provides a powerful and flexible way to manage your membership programs, including creating, updating, and maintaining digital membership passes for Apple Wallet and Google Wallet. Easily integrate membership functionality into your applications to deliver seamless, real-time experiences for your members.
+    """Manages membership programmes, tiers, members, member events, pass lifecycle, and point balances. Create a programme before creating tiers or enrolling members.
     """
 
     @staticmethod
@@ -2016,6 +2034,33 @@ class Members(object):
             '/members.Members/getProgramEnrolment',
             passkit_dot_io_dot_common_dot_common__objects__pb2.Id.SerializeToString,
             passkit_dot_io_dot_common_dot_distribution__pb2.EnrolmentUrls.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def batchUpdate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/members.Members/batchUpdate',
+            passkit_dot_io_dot_common_dot_batch__update__pb2.BatchUpdateRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options,
             channel_credentials,
             insecure,

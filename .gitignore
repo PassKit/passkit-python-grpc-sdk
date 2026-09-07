@@ -2,6 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.DS_Store
+.idea/
+.vscode/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # C extensions
 *.so
@@ -13,6 +21,14 @@ dist/
 *.egg-info/
 .eggs/
 *.egg
+
+# Test and coverage output
+.coverage
+coverage.xml
+htmlcov/
+
+# Local publishing credentials
+.pypirc
 
 # Installer logs
 pip-log.txt
