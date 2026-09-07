@@ -29,7 +29,7 @@ classifiers = [
 dependencies = [
   "googleapis-common-protos>=1.70.0,<2",
   "grpcio>=1.74.0,<2",
-  "protobuf>=6.31.1,<7",
+  "protobuf>=6.31.1,<8",
   "protoc-gen-openapiv2>=0.0.1,<0.1",
 ]
 
